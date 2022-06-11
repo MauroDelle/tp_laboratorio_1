@@ -1,0 +1,24 @@
+Hola a quien corrija este trabajo practico.
+
+Hago un par de aclaraciones.
+El tp funciona perfectamente hasta donde lo
+llegue a probar, no rompe en ningun momento al 
+menos en las cosas que lo probe(que es casi todo)
+y no lo pude perfeccionar como me hubiese gustado 
+para la entrega, ya que venimos bastante apretados
+con el tiempo.
+Otra cosa es que no sabia si hacerlo enteramente
+en ingles o en castellano, se que uds habian recomendado
+hacerlo enteramente en ingles, ya que obviamente el codeo es en ingles.
+Me acorde tarde de esto ya apretado con el tiempo y quise modificarlo.
+Tenia la mayoria en castellano asi que por una cuestion de tiempo decidi
+hacerlo todo en castellano, menos algunas opciones de los menus, del flight code
+y de el flight status.
+
+Otra cosa a aclarar es que utilice funciones hechas por Baus en las clases del 6/6 y
+8/6, con una leve modificacion, pero los nombres son exactamente iguales.
+A su vez tambien utilice dos funciones de validacion sacadas de internet, las cuales 
+ya habia utilizado en el anterior trabajo practico con el mismo nombre.
+Digo esto para aclarar que tengo muchas funciones con el mismo nombre que ya reutilice.
+
+Muchas gracias.
