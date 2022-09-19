@@ -24,7 +24,7 @@ int main(void) {
 	float ingresoC = 0;
 	float ingresoT = 0;
 
-	int flagIngreso1 =  0;
+	int flagIngreso1 = 0;
 	int flagIngreso2 = 0;
 	int flagIngreso4 = 0;
 

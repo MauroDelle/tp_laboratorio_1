@@ -51,7 +51,7 @@ void carga_Confederaciones(int *AFC, int *CAF, int *CONCACAF, int *CONMEBOL,
 			contOFC++;
 			break;
 		default:
-			printf("Opcion incorrecta!");
+			printf("Opcion  incorrecta!");
 	}
 
 	*AFC += contAFC;
