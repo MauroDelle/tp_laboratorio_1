@@ -28,14 +28,14 @@ int main(void) {
 	int flagIngreso2 = 0;
 	int flagIngreso4 = 0;
 
-	int contadorArqueros = 0;
-	int contadorDefensores = 0;
+	int contadorArqueros =  0;
+	int contadorDefensores  = 0;
 	int contadorMediocampistas = 0;
-	int contadorDelanteros = 0;
+	int contadorDelanteros =  0;
 
 	int arqueroConfed;
 
-	//tengo que calcular el promedio de jugadores de cada confederacion
+	//tengo que calcular el promedio de jugadores de cada con
 
 	do {
 		opcion = menu(ingresoH, ingresoC, ingresoT, contadorArqueros,
