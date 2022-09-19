@@ -41,7 +41,7 @@ int main(void) {
 	int contOfc = 0;
 
 
-	//ya pude pasar la cantidad  de jugadores por confederacion, ahora a sacar los porcentajes dale
+	//ya pude pasar la cantidad  de jugadores por confederacion,ahora a sacar los porcentajes dale
 
 
 	do {
