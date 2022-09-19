@@ -13,7 +13,7 @@ float costo_hospedaje() {
 	float costo;
 
 	printf("Ingrese el costo del hospedaje: ($500000-$1000000)");
-	scanf("%f", &costo);
+	scanf("%f", &costo );
 
 	while (costo < 500000 || costo > 1000000) {
 		printf("Error! Ingrese el costo del hospedaje: (500000-1000000)\n");

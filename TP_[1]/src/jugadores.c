@@ -59,7 +59,7 @@ void carga_Confederaciones(int *AFC, int *CAF, int *CONCACAF, int *CONMEBOL,
 	*CONCACAF += contCONCACAF;
 	*CONMEBOL += contCONMEBOL;
 	*UEFA += contUEFA;
-	*OFC += contOFC;
+	*OFC +=  contOFC;
 
 
 	limpiar();
