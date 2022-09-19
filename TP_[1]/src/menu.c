@@ -13,7 +13,7 @@ int menu(float ingresoH, float ingresoC, float ingresoT, int contArq, int contDe
 {
 	int ingreso;
 
-	printf("---------   Menu Principal   ---------");
+	printf("---------  Menu Principal  ---------");
 	printf("\n\n");
 	printf("1. Ingreso de los costos de Mantenimiento\n");
 	printf("Costo de Hospedaje -> $%.0f", ingresoH);

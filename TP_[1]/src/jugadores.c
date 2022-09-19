@@ -11,6 +11,7 @@ void carga_Confederaciones(int *AFC, int *CAF, int *CONCACAF, int *CONMEBOL,
 		                                                int *UEFA, int *OFC)
 {
 	int numero;
+
 	int opcion;
 
 	int contAFC = 0;

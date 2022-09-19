@@ -12,7 +12,7 @@
 
 
 int menu(float ingresoH, float ingresoC, float ingresoT, int contArq, int contDef, int contMed, int contDel);
-int menuMantenimiento(void);
+int menuMantenimiento(void) ;
 int menu_jugadores();
 int menu_confederacion();
 

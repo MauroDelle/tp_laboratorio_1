@@ -16,7 +16,7 @@
 
 int main(void) {
 
-	setbuf(stdout, NULL);
+	setbuf(stdout,NULL);
 
 	int opcion;
 
