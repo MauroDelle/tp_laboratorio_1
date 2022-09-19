@@ -35,7 +35,7 @@ int main(void) {
 
 	int arqueroConfed;
 
-	//tengo que calcular el promedio de jugadores de cada con
+	//tengo que calcular el promedio de jugadores de cada confederacion
 
 	do {
 		opcion = menu(ingresoH, ingresoC, ingresoT, contadorArqueros,
