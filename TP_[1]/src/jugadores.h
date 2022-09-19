@@ -13,9 +13,9 @@
 #include "utn.h"
 
 
-int carga_jugadores();
-void carga_Arquero(int *confederacion);
-
+int carga_jugadores(int *contArq, int *contDef, int *contMed, int *contDel, int *AFC, int *CAF, int *CONCACAF, int *CONMEBOL,
+		int *UEFA, int *OFC);
+void carga_Confederaciones(int *AFC, int *CAF, int *CONCACAF, int *CONMEBOL,int *UEFA, int *OFC);
 
 
 #endif /* JUGADORES_H_ */

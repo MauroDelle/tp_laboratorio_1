@@ -7,9 +7,18 @@
 
 #include "jugadores.h"
 
-void carga_Arquero(int *confederacion){
-
+void carga_Confederaciones(int *AFC, int *CAF, int *CONCACAF, int *CONMEBOL,
+		                                                int *UEFA, int *OFC)
+{
 	int numero;
+	int opcion;
+
+	int contAFC = 0;
+	int contCAF = 0;
+	int contCONCACAF = 0;
+	int contCONMEBOL = 0;
+	int contUEFA = 0;
+	int contOFC = 0;
 
 	printf("Numero de camiseta: (1-99)\n");
 	scanf("%d", &numero);
@@ -19,14 +28,46 @@ void carga_Arquero(int *confederacion){
 		scanf("%d", &numero);
 	}
 
-	*confederacion = menu_confederacion();
+	opcion = menu_confederacion();
+
+	switch(opcion)
+	{
+		case 1:
+			contAFC++;
+			break;
+		case 2:
+			contCAF++;
+			break;
+		case 3:
+			contCONCACAF++;
+			break;
+		case 4:
+			contCONMEBOL++;
+			break;
+		case 5:
+			contUEFA++;
+			break;
+		case 6:
+			contOFC++;
+			break;
+		default:
+			printf("Opcion incorrecta!");
+	}
+
+	*AFC += contAFC;
+	*CAF += contCAF;
+	*CONCACAF += contCONCACAF;
+	*CONMEBOL += contCONMEBOL;
+	*UEFA += contUEFA;
+	*OFC += contOFC;
+
 
 	limpiar();
 
 }
 
-int carga_jugadores(int *contArq, int *contDef, int *contMed, int *contDel,
-		int *arqueroConfed) {
+int carga_jugadores(int *contArq, int *contDef, int *contMed, int *contDel, int *AFC, int *CAF, int *CONCACAF, int *CONMEBOL,
+		int *UEFA, int *OFC) {
 
 	int opcion;
 	int retorno = 0;
@@ -36,6 +77,13 @@ int carga_jugadores(int *contArq, int *contDef, int *contMed, int *contDel,
 	int contadorMed = 0;
 	int contadorDel = 0;
 
+	int contAfc = 0;
+	int contCaf = 0;
+	int contConcacaf = 0;
+	int contConmbol = 0;
+	int contUefa = 0;
+	int contOfc = 0;
+
 	if (contArq != NULL && contDef != NULL && contMed != NULL && contDel != NULL) {
 		do {
 			opcion = menu_jugadores();
@@ -43,15 +91,18 @@ int carga_jugadores(int *contArq, int *contDef, int *contMed, int *contDel,
 			switch (opcion) {
 			case 1:
 				contadorArq++;
-				carga_Arquero(arqueroConfed);
+				carga_Confederaciones(&contAfc,&contCaf,&contConcacaf,&contConmbol,&contUefa,&contOfc);
 				break;
 			case 2:
+				carga_Confederaciones(&contAfc,&contCaf,&contConcacaf,&contConmbol,&contUefa,&contOfc);
 				contadorDef++;
 				break;
 			case 3:
+				carga_Confederaciones(&contAfc,&contCaf,&contConcacaf,&contConmbol,&contUefa,&contOfc);
 				contadorMed++;
 				break;
 			case 4:
+				carga_Confederaciones(&contAfc,&contCaf,&contConcacaf,&contConmbol,&contUefa,&contOfc);
 				contadorDel++;
 				break;
 			case 5:
@@ -66,6 +117,12 @@ int carga_jugadores(int *contArq, int *contDef, int *contMed, int *contDel,
 
 	}
 
+	*AFC += contAfc;
+	*CAF += contCaf;
+	*CONCACAF += contConcacaf;
+	*CONMEBOL += contConmbol;
+	*UEFA += contUefa;
+	*OFC += contOfc;
 	*contArq += contadorArq;
 	*contDef += contadorDef;
 	*contMed += contadorMed;
@@ -73,6 +130,7 @@ int carga_jugadores(int *contArq, int *contDef, int *contMed, int *contDel,
 
 	return retorno;
 }
+
 
 
 

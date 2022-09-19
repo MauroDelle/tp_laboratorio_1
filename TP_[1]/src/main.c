@@ -33,9 +33,16 @@ int main(void) {
 	int contadorMediocampistas = 0;
 	int contadorDelanteros =  0;
 
-	int arqueroConfed;
+	int contAfc = 0;
+	int contCaf = 0;
+	int contConcacaf = 0;
+	int contConmbol = 0;
+	int contUefa = 0;
+	int contOfc = 0;
 
-	//tengo que calcular el promedio de jugadores de cada confederacion
+
+	//ya pude pasar la cantidad de jugadores por confederacion, ahora a sacar los porcentajes dale
+
 
 	do {
 		opcion = menu(ingresoH, ingresoC, ingresoT, contadorArqueros,
@@ -43,20 +50,21 @@ int main(void) {
 
 		switch (opcion) {
 		case 1:
-
 			ingresoMantenimiento(&ingresoH, &ingresoC, &ingresoT);
-
 			flagIngreso1 = 1;
 			break;
 		case 2:
 			if (flagIngreso1 == 0) {
-				printf("Ingrese los costos de mantenimiento primero !\n\n\n");
+				printf("Ingrese los costos de mantenimiento primero !\n\n");
 			} else {
 
 				carga_jugadores(&contadorArqueros, &contadorDefensores,
 						&contadorMediocampistas, &contadorDelanteros,
-						&arqueroConfed);
-				printf("%d", arqueroConfed);
+				        &contAfc,&contCaf,&contConcacaf,
+						&contConmbol,&contUefa,&contOfc);
+
+				printf("%d\n", contConmbol);
+
 				flagIngreso2 = 1;
 			}
 			break;
@@ -75,6 +83,9 @@ int main(void) {
 				printf(
 						"Debe de calcular todos los calculos antes de poder mostrarlos! \n");
 			} else {
+
+
+
 
 			}
 			break;
