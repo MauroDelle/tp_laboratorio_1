@@ -13,6 +13,7 @@
 #include "menu.h"
 #include "costos.h"
 #include "jugadores.h"
+#include "calculos.h"
 
 int main(void) {
 
@@ -50,7 +51,7 @@ int main(void) {
 		opcion = menu(ingresoH, ingresoC, ingresoT, contadorArqueros,
 				contadorDefensores, contadorMediocampistas, contadorDelanteros);
 
-		switch (opcion) {
+		switch (opcion){
 		case 1:
 			ingresoMantenimiento(&ingresoH, &ingresoC, &ingresoT);
 			flagIngreso1 = 1;
@@ -77,7 +78,10 @@ int main(void) {
 			if (flagIngreso2 == 0) {
 				printf("Ingrese los costos de mantenimiento primero !\n\n");
 
-			} else {
+			}
+			else{
+
+
 
 				flagIngreso4 = 1;
 			}
