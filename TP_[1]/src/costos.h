@@ -12,7 +12,6 @@
 #include "menu.h"
 #include "utn.h"
 
-
 int ingresoMantenimiento(float *costoH, float *costoC, float *costoT);
 float costo_hospedaje();
 float costo_comida(void);

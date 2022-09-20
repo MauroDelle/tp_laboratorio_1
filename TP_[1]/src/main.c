@@ -40,8 +40,10 @@ int main(void) {
 	int contUefa = 0;
 	int contOfc = 0;
 
+	int totalJugadores;
 
-	//ya pude pasar la cantidad  de jugadores por confederacion,ahora a sacar los porcentajes dale
+
+	//menu de resultados creado, ahora pasarle dichos resultados
 
 
 	do {
@@ -63,7 +65,10 @@ int main(void) {
 				        &contAfc,&contCaf,&contConcacaf,
 						&contConmbol,&contUefa,&contOfc);
 
+				totalJugadores = contadorArqueros + contadorDefensores + contadorMediocampistas + contadorDelanteros;
+
 				printf("%d\n", contConmbol);
+				printf("%d\n", totalJugadores);
 
 				flagIngreso2 = 1;
 			}
@@ -84,7 +89,7 @@ int main(void) {
 						"Debe de calcular todos los calculos antes de poder mostrarlos! \n");
 			} else {
 
-
+				menu_resultados();
 
 
 			}

@@ -95,4 +95,22 @@ int menu_confederacion()
 	return ingreso;
 }
 
+int menu_resultados()
+{
+	int ingreso;
+
+
+	printf("\n          Informar todos los Resultados          \n\n");
+	printf("Porcentaje Uefa 50.00\n"
+		   "Porcentaje Conmebol \n"
+		   "Porcentaje Concacaf \n"
+		   "Porcentaje Afc \n"
+		   "Porcentaje Ofc \n"
+		   "Porcentaje Caf \n");
+	printf("El costo de mantenimiento era de  y recibio un aumento de , su nuevo valor es de : \n");
+	scanf("%d",&ingreso);
+
+	return ingreso;
+}
+
 

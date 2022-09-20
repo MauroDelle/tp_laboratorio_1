@@ -15,7 +15,7 @@ int menu(float ingresoH, float ingresoC, float ingresoT, int contArq, int contDe
 int menuMantenimiento(void) ;
 int menu_jugadores();
 int menu_confederacion();
-
+int menu_resultados();
 
 
 #endif /* MENU_H_ */
