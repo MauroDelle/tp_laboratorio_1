@@ -20,7 +20,7 @@ void carga_Confederaciones(int *AFC, int *CAF, int *CONCACAF, int *CONMEBOL,
 	int contCONMEBOL = 0;
 	int contUEFA = 0;
 	int contOFC = 0;
-
+/*
 	printf("Numero de camiseta: (1-99)\n");
 	scanf("%d", &numero);
 
@@ -28,6 +28,7 @@ void carga_Confederaciones(int *AFC, int *CAF, int *CONCACAF, int *CONMEBOL,
 		printf("Numero de camiseta: (1-99)\n");
 		scanf("%d", &numero);
 	}
+	*/
 
 	opcion = menu_confederacion();
 

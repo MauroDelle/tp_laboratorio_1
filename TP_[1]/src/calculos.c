@@ -9,7 +9,7 @@
 
 
 
-void realizarCalculos(int contadorUEFA, int contadorCONMEBOL,
+void realizarPromedios(int contadorUEFA, int contadorCONMEBOL,
 		int contadorCONCACAF, int contadorAFC, int contadorOFC, int contadorCAF, int totalJugadores)
 {
 	float promedioUEFA;
@@ -19,20 +19,25 @@ void realizarCalculos(int contadorUEFA, int contadorCONMEBOL,
 	float promedioOFC;
 	float promedioCAF;
 
-	promedioUEFA = (contadorUEFA * 100) / totalJugadores;
-	promedioCONMEBOL = (contadorCONMEBOL * 100) / totalJugadores;
-	promedioCONCACAF = (contadorCONCACAF * 100) / totalJugadores;
-	promedioAFC = (contadorAFC * 100) / totalJugadores;
-	promedioOFC = (contadorOFC * 100) / totalJugadores;
-	promedioCAF = (contadorCAF * 100) / totalJugadores;
+	promedioUEFA = (float)(contadorUEFA * 100) / totalJugadores;
+	promedioCONMEBOL = (float)(contadorCONMEBOL * 100) / totalJugadores;
+	promedioCONCACAF = (float)(contadorCONCACAF * 100) / totalJugadores;
+	promedioAFC = (float)(contadorAFC * 100) / totalJugadores;
+	promedioOFC = (float)(contadorOFC * 100) / totalJugadores;
+	promedioCAF = (float)(contadorCAF * 100) / totalJugadores;
 
 
-
-
-
-
-
-
+	printf("Porcentaje Uefa %0.2f\n"
+		   "Porcentaje Conmebol %0.2f\n"
+		   "Porcentaje Concacaf %0.2f\n"
+		   "Porcentaje Afc %0.2f\n"
+		   "Porcentaje Ofc %0.2f\n"
+		   "Porcentaje Caf %0.2f\n",promedioUEFA,
+		                     promedioCONMEBOL,
+							 promedioCONCACAF,
+							      promedioAFC,
+								  promedioOFC,
+								  promedioCAF);
 
 }
 

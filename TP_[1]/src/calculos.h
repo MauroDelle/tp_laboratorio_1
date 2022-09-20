@@ -14,7 +14,8 @@
 
 
 
-void realizarCalculos();
+void realizarPromedios(int contadorUEFA, int contadorCONMEBOL,
+		int contadorCONCACAF, int contadorAFC, int contadorOFC, int contadorCAF, int totalJugadores);
 
 
 

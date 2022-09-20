@@ -21,13 +21,14 @@ int main(void) {
 
 	int opcion;
 
-	float ingresoH = 0;
-	float ingresoC = 0;
-	float ingresoT = 0;
-
 	int flagIngreso1 = 0;
 	int flagIngreso2 = 0;
 	int flagIngreso4 = 0;
+
+	float ingresoH = 0;
+	float ingresoC = 0;
+	float ingresoT = 0;
+	float costoMantenimiento;
 
 	int contadorArqueros =  0;
 	int contadorDefensores  = 0;
@@ -40,11 +41,8 @@ int main(void) {
 	int contConmbol = 0;
 	int contUefa = 0;
 	int contOfc = 0;
-
 	int totalJugadores;
 
-
-	//menu de resultados creado, ahora pasarle dichos resultados
 
 
 	do {
@@ -54,6 +52,9 @@ int main(void) {
 		switch (opcion){
 		case 1:
 			ingresoMantenimiento(&ingresoH, &ingresoC, &ingresoT);
+
+			costoMantenimiento = ingresoH + ingresoC + ingresoT;
+
 			flagIngreso1 = 1;
 			break;
 		case 2:
@@ -68,7 +69,6 @@ int main(void) {
 
 				totalJugadores = contadorArqueros + contadorDefensores + contadorMediocampistas + contadorDelanteros;
 
-				printf("%d\n", contConmbol);
 				printf("%d\n", totalJugadores);
 
 				flagIngreso2 = 1;
@@ -81,7 +81,7 @@ int main(void) {
 			}
 			else{
 
-
+				realizarPromedios(contUefa, contConmbol, contConcacaf, contAfc, contOfc, contCaf, totalJugadores);
 
 				flagIngreso4 = 1;
 			}
