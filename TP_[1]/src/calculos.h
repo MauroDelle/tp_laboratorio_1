@@ -14,9 +14,11 @@
 
 
 
-void realizarPromedios(int contadorUEFA, int contadorCONMEBOL,
-		int contadorCONCACAF, int contadorAFC, int contadorOFC, int contadorCAF, int totalJugadores);
 
+float realizarPromedios(int contadorUEFA, int contadorCONMEBOL,
+		int contadorCONCACAF, int contadorAFC, int contadorOFC, int contadorCAF,
+		int totalJugadores, float *promUEFA, float *promCONMEBOL, float *promCONCACAF,
+		float *promAFC, float *promOFC, float *promCAF);
 
 
 

@@ -95,22 +95,27 @@ int menu_confederacion()
 	return ingreso;
 }
 
-int menu_resultados()
+void menu_resultados(float costoMantenimiento, float pUEFA,
+											float pCONMEBOL,
+											float pCONCACAF,
+											float pAFC,
+											float pOFC,
+											float pCAF)
 {
-	int ingreso;
-
 
 	printf("\n          Informar todos los Resultados          \n\n");
-	printf("Porcentaje Uefa 50.00\n"
-		   "Porcentaje Conmebol \n"
-		   "Porcentaje Concacaf \n"
-		   "Porcentaje Afc \n"
-		   "Porcentaje Ofc \n"
-		   "Porcentaje Caf \n");
-	printf("El costo de mantenimiento era de  y recibio un aumento de , su nuevo valor es de : \n");
-	scanf("%d",&ingreso);
-
-	return ingreso;
+	printf("Porcentaje Uefa %0.2f\n"
+		   "Porcentaje Conmebol %0.2f\n"
+		   "Porcentaje Concacaf %0.2f\n"
+		   "Porcentaje Afc %0.2f\n"
+		   "Porcentaje Ofc %0.2f\n"
+		   "Porcentaje Caf %0.2f\n", pUEFA,
+								    pCONMEBOL,
+								    pCONCACAF,
+								    pAFC,
+								    pOFC,
+								    pCAF);
+	printf("El costo de mantenimiento era %0.2f de  y recibio un aumento de , su nuevo valor es de : \n", costoMantenimiento);
 }
 
 

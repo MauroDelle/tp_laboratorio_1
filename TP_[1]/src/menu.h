@@ -15,7 +15,12 @@ int menu(float ingresoH, float ingresoC, float ingresoT, int contArq, int contDe
 int menuMantenimiento(void) ;
 int menu_jugadores();
 int menu_confederacion();
-int menu_resultados();
+void menu_resultados(float costoMantenimiento, float pUEFA,
+											float pCONMEBOL,
+											float pCONCACAF,
+											float pAFC,
+											float pOFC,
+											float pCAF);
 
 
 #endif /* MENU_H_ */

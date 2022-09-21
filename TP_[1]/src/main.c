@@ -43,6 +43,13 @@ int main(void) {
 	int contOfc = 0;
 	int totalJugadores;
 
+	float promUEFA;
+	float promCONMEBOL;
+	float promCONCACAF;
+	float promAFC;
+	float promOFC;
+	float promCAF;
+
 
 
 	do {
@@ -75,14 +82,18 @@ int main(void) {
 			}
 			break;
 		case 3:
-			if (flagIngreso2 == 0) {
-				printf("Ingrese los costos de mantenimiento primero !\n\n");
+			if (flagIngreso2 == 0 || totalJugadores == 0) {
+				printf("Debe Ingresar al menos un Jugadoros para realizar los calculos!!\n\n");
 
 			}
 			else{
 
-				realizarPromedios(contUefa, contConmbol, contConcacaf, contAfc, contOfc, contCaf, totalJugadores);
-
+				realizarPromedios(contUefa, contConmbol, contConcacaf, contAfc, contOfc, contCaf, totalJugadores,&promUEFA,
+						                                                                                         &promCONMEBOL,
+																												 &promCONCACAF,
+																												 &promAFC,&promOFC,
+																												 &promCAF);
+				printf("Promedio Realizado! \n");
 				flagIngreso4 = 1;
 			}
 
@@ -93,7 +104,7 @@ int main(void) {
 						"Debe de calcular todos los calculos antes de poder mostrarlos! \n");
 			} else {
 
-				menu_resultados();
+				menu_resultados(costoMantenimiento,promUEFA,promCONMEBOL,promCONCACAF,promAFC,promOFC,promCAF);
 
 
 			}
