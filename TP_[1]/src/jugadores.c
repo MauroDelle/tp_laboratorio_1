@@ -93,20 +93,48 @@ int carga_jugadores(int *contArq, int *contDef, int *contMed, int *contDel, int 
 
 			switch (opcion) {
 			case 1:
-				contadorArq++;
+				if(contadorArq == 2)
+				{
+					printf("Ya ingresó 2 jugadores en esta posicion");
+				}
+				else
+				{
 				carga_Confederaciones(&contAfc,&contCaf,&contConcacaf,&contConmbol,&contUefa,&contOfc);
+				contadorArq++;
+				}
 				break;
 			case 2:
+				if(contadorDef == 8)
+				{
+					printf("Ya ingresó 2 jugadores en esta posicion");
+				}
+				else
+				{
 				carga_Confederaciones(&contAfc,&contCaf,&contConcacaf,&contConmbol,&contUefa,&contOfc);
 				contadorDef++;
+				}
 				break;
 			case 3:
-				carga_Confederaciones(&contAfc,&contCaf,&contConcacaf,&contConmbol,&contUefa,&contOfc);
-				contadorMed++;
+				if(contadorMed == 8)
+				{
+					printf("Ya ingresó 2 jugadores en esta posicion");
+				}
+				else
+				{
+					carga_Confederaciones(&contAfc,&contCaf,&contConcacaf,&contConmbol,&contUefa,&contOfc);
+					contadorMed++;
+				}
 				break;
 			case 4:
-				carga_Confederaciones(&contAfc,&contCaf,&contConcacaf,&contConmbol,&contUefa,&contOfc);
-				contadorDel++;
+				if(contadorDel == 4)
+				{
+					printf("Ya ingresó 2 jugadores en esta posicion");
+				}
+				else
+				{
+					carga_Confederaciones(&contAfc,&contCaf,&contConcacaf,&contConmbol,&contUefa,&contOfc);
+					contadorDel++;
+				}
 				break;
 			case 5:
 				break;

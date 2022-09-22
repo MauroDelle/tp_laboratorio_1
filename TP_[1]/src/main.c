@@ -78,8 +78,6 @@ int main(void) {
 				        &contAfc,&contCaf,&contConcacaf,
 						&contConmbol,&contUefa,&contOfc);
 
-
-
 				totalJugadores = contadorArqueros + contadorDefensores + contadorMediocampistas + contadorDelanteros;
 
 				totalConfederaciones = contAfc + contCaf + contConcacaf + contConmbol + contOfc;
@@ -92,7 +90,6 @@ int main(void) {
 
 					costoMantenimiento = costoMantenimiento + aumentoUEFA;
 				}
-
 
 				printf("%d\n", totalJugadores);
 
