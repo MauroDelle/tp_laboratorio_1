@@ -35,6 +35,10 @@ int main(void) {
 	int contadorMediocampistas = 0;
 	int contadorDelanteros =  0;
 
+	int aumentoUEFA;
+	int totalConfederaciones;
+    int restaUEFA;
+
 	int contAfc = 0;
 	int contCaf = 0;
 	int contConcacaf = 0;
@@ -52,7 +56,7 @@ int main(void) {
 
 
 
-	do {
+	do{
 		opcion = menu(ingresoH, ingresoC, ingresoT, contadorArqueros,
 				contadorDefensores, contadorMediocampistas, contadorDelanteros);
 
@@ -74,7 +78,21 @@ int main(void) {
 				        &contAfc,&contCaf,&contConcacaf,
 						&contConmbol,&contUefa,&contOfc);
 
+
+
 				totalJugadores = contadorArqueros + contadorDefensores + contadorMediocampistas + contadorDelanteros;
+
+				totalConfederaciones = contAfc + contCaf + contConcacaf + contConmbol + contOfc;
+
+				restaUEFA = totalJugadores - contUefa;
+
+				if(contUefa > restaUEFA)
+				{
+					aumentoUEFA = (costoMantenimiento * 35) / 100;
+
+					costoMantenimiento = costoMantenimiento + aumentoUEFA;
+				}
+
 
 				printf("%d\n", totalJugadores);
 
@@ -84,7 +102,6 @@ int main(void) {
 		case 3:
 			if (flagIngreso2 == 0 || totalJugadores == 0) {
 				printf("Debe Ingresar al menos un Jugadoros para realizar los calculos!!\n\n");
-
 			}
 			else{
 

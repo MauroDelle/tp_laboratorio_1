@@ -87,6 +87,7 @@ int carga_jugadores(int *contArq, int *contDef, int *contMed, int *contDel, int 
 	int contOfc = 0;
 
 	if (contArq != NULL && contDef != NULL && contMed != NULL && contDel != NULL) {
+
 		do {
 			opcion = menu_jugadores();
 
