@@ -55,6 +55,7 @@ int ingresoMantenimiento(float *costoH, float *costoC, float *costoT) {
 	int opcion;
 	int retorno = 0;
 
+
 	//ultimo antes de irme: ver una forma de pasar los costos para que el menu vaya mostrando los valores.
 
 	if (costoH != NULL && costoC != NULL && costoT != NULL) {
