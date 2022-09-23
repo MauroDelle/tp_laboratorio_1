@@ -36,6 +36,32 @@ float realizarPromedios(int contadorUEFA, int contadorCONMEBOL,
 
 
 
+int calcularTotal(int arqueros, int defensores,int mediocampistas,int delanteros,int  *totalJugadores)
+{
+
+	return *totalJugadores = arqueros + defensores + mediocampistas + delanteros;
+
+}
+
+
+int calcular_totalConfederaciones(int afc, int caf, int concacaf, int conmebol, int ofc, int *totalConfederaciones)
+{
+	return *totalConfederaciones = afc + caf + concacaf + conmebol + ofc;
+}
+
+
+
+int calcular_totalSinUEFA(int totalJugadores, int contUefa, int *restaUEFA)
+{
+	return *restaUEFA = totalJugadores - contUefa;
+}
+
+
+
+
+
+
+
 
 
 

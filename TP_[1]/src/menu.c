@@ -100,7 +100,9 @@ void menu_resultados(float costoMantenimiento, float pUEFA,
 											float pCONCACAF,
 											float pAFC,
 											float pOFC,
-											float pCAF)
+											float pCAF,
+											float aumentoUEFA,
+											float aumentoMantenimiento)
 {
 
 	printf("\n          Informar todos los Resultados          \n\n");
@@ -109,13 +111,16 @@ void menu_resultados(float costoMantenimiento, float pUEFA,
 		   "Porcentaje Concacaf %0.2f\n"
 		   "Porcentaje Afc %0.2f\n"
 		   "Porcentaje Ofc %0.2f\n"
-		   "Porcentaje Caf %0.2f\n", pUEFA,
+		   "Porcentaje Caf %0.2f\n",    pUEFA,
 								    pCONMEBOL,
 								    pCONCACAF,
 								    pAFC,
 								    pOFC,
 								    pCAF);
-	printf("El costo de mantenimiento era %0.2f de  y recibio un aumento de , su nuevo valor es de : \n", costoMantenimiento);
+	printf("El costo de mantenimiento era %0.2f de  y recibio un aumento de %0.2f, su nuevo valor es de %0.2f: \n",
+			                                                                               costoMantenimiento,
+																						   aumentoUEFA,
+																						   aumentoMantenimiento);
 }
 
 

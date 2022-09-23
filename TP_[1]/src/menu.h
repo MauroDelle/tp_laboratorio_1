@@ -20,7 +20,8 @@ void menu_resultados(float costoMantenimiento, float pUEFA,
 											float pCONCACAF,
 											float pAFC,
 											float pOFC,
-											float pCAF);
-
+											float pCAF,
+											float aumentoUEFA,
+											float aumentoMantenimiento);
 
 #endif /* MENU_H_ */

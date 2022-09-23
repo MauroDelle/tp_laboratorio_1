@@ -106,7 +106,7 @@ int carga_jugadores(int *contArq, int *contDef, int *contMed, int *contDel, int 
 			case 2:
 				if(contadorDef == 8)
 				{
-					printf("Ya ingresó 2 jugadores en esta posicion");
+					printf("Ya ingresó 8 jugadores en esta posicion");
 				}
 				else
 				{
@@ -117,7 +117,7 @@ int carga_jugadores(int *contArq, int *contDef, int *contMed, int *contDel, int 
 			case 3:
 				if(contadorMed == 8)
 				{
-					printf("Ya ingresó 2 jugadores en esta posicion");
+					printf("Ya ingresó 8 jugadores en esta posicion");
 				}
 				else
 				{
@@ -128,7 +128,7 @@ int carga_jugadores(int *contArq, int *contDef, int *contMed, int *contDel, int 
 			case 4:
 				if(contadorDel == 4)
 				{
-					printf("Ya ingresó 2 jugadores en esta posicion");
+					printf("Ya ingresó 4 jugadores en esta posicion");
 				}
 				else
 				{
@@ -158,6 +158,7 @@ int carga_jugadores(int *contArq, int *contDef, int *contMed, int *contDel, int 
 	*contDef += contadorDef;
 	*contMed += contadorMed;
 	*contDel += contadorDel;
+
 
 	return retorno;
 }

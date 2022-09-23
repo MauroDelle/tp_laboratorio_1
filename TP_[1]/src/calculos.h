@@ -21,7 +21,9 @@ float realizarPromedios(int contadorUEFA, int contadorCONMEBOL,
 		float *promAFC, float *promOFC, float *promCAF);
 
 
-
+int calcularTotal(int arqueros, int defensores,int mediocampistas,int delanteros,int  *totalJugadores);
+int calcular_totalConfederaciones(int afc, int caf, int concacaf, int conmebol, int ofc, int *totalConfederaciones);
+int calcular_totalSinUEFA(int totalJugadores, int contUefa, int *restaUEFA);
 
 
 #endif /* CALCULOS_H_ */

@@ -14,6 +14,8 @@
 #include "costos.h"
 #include "jugadores.h"
 #include "calculos.h"
+#define TRUE 1
+#define FALSE 0
 
 int main(void) {
 
@@ -35,9 +37,11 @@ int main(void) {
 	int contadorMediocampistas = 0;
 	int contadorDelanteros =  0;
 
-	int aumentoUEFA;
-	int totalConfederaciones;
+	float aumentoUEFA;
+	int totalConfederaciones = 0;
     int restaUEFA;
+
+    float aumentoMantenimiento;
 
 	int contAfc = 0;
 	int contCaf = 0;
@@ -45,7 +49,7 @@ int main(void) {
 	int contConmbol = 0;
 	int contUefa = 0;
 	int contOfc = 0;
-	int totalJugadores;
+	int totalJugadores = 0;
 
 	float promUEFA;
 	float promCONMEBOL;
@@ -78,21 +82,24 @@ int main(void) {
 				        &contAfc,&contCaf,&contConcacaf,
 						&contConmbol,&contUefa,&contOfc);
 
-				totalJugadores = contadorArqueros + contadorDefensores + contadorMediocampistas + contadorDelanteros;
+				//hacer todo esto en un a funcion asi no queda todo despelotado.
 
-				totalConfederaciones = contAfc + contCaf + contConcacaf + contConmbol + contOfc;
-
-				restaUEFA = totalJugadores - contUefa;
+				calcularTotal(contadorArqueros, contadorDefensores, contadorMediocampistas, contadorDelanteros, &totalJugadores);
+				calcular_totalConfederaciones(contAfc, contCaf, contConcacaf, contConmbol, contOfc, &totalConfederaciones);
+				calcular_totalSinUEFA(totalJugadores, contUefa, &restaUEFA);
 
 				if(contUefa > restaUEFA)
 				{
 					aumentoUEFA = (costoMantenimiento * 35) / 100;
-
-					costoMantenimiento = costoMantenimiento + aumentoUEFA;
+					aumentoMantenimiento = costoMantenimiento + aumentoUEFA;
+				}
+				else
+				{
+					aumentoMantenimiento = 0;
+					aumentoUEFA = 0;
 				}
 
-				printf("%d\n", totalJugadores);
-
+				//printf("%d\n", restaUEFA);
 				flagIngreso2 = 1;
 			}
 			break;
@@ -101,7 +108,7 @@ int main(void) {
 				printf("Debe Ingresar al menos un Jugadoros para realizar los calculos!!\n\n");
 			}
 			else{
-
+				//A-B-C
 				realizarPromedios(contUefa, contConmbol, contConcacaf, contAfc, contOfc, contCaf, totalJugadores,&promUEFA,
 						                                                                                         &promCONMEBOL,
 																												 &promCONCACAF,
@@ -110,17 +117,15 @@ int main(void) {
 				printf("Promedio Realizado! \n");
 				flagIngreso4 = 1;
 			}
-
 			break;
 		case 4:
 			if (flagIngreso4 == 0) {
 				printf(
 						"Debe de calcular todos los calculos antes de poder mostrarlos! \n");
-			} else {
-
-				menu_resultados(costoMantenimiento,promUEFA,promCONMEBOL,promCONCACAF,promAFC,promOFC,promCAF);
-
-
+			}else
+			{
+				menu_resultados(costoMantenimiento,promUEFA,promCONMEBOL,promCONCACAF,promAFC,promOFC,promCAF,
+						                                                    aumentoUEFA,aumentoMantenimiento);
 			}
 			break;
 		case 5:
