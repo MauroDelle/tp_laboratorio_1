@@ -8,7 +8,6 @@
 #include "costos.h"
 
 
-
 float costo_hospedaje() {
 	float costo;
 
