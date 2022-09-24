@@ -124,3 +124,11 @@ void menu_resultados(float costoMantenimiento, float pUEFA,
 }
 
 
+
+void menuprincipal()
+{
+
+}
+
+
+

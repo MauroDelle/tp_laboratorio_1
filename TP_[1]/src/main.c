@@ -95,6 +95,7 @@ int main(void) {
 				}
 				else
 				{
+					printf("No se aplica aumento de 35 porciento\n");
 					aumentoMantenimiento = 0;
 					aumentoUEFA = 0;
 				}
