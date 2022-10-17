@@ -18,7 +18,7 @@ int modificarJugador(eJugador vec[], int tam, eConfederacion confederaciones[],i
     char salir = 'n';
     char auxCad[100];
     char auxPosicion[100];
-    eJugador nuevoJugador;
+    int auxConfederacion;
 
 	if(vec != NULL && tam > 0)
 	{
@@ -61,9 +61,12 @@ int modificarJugador(eJugador vec[], int tam, eConfederacion confederaciones[],i
 	                        printf("Se ha modificado el Numero de Camiseta\n");
 							break;
 						case 4:
+							listarConfederaciones(confederaciones, tamC);
 
+							printf("Ingrese el ID de la nueva confederacion: ");
+							scanf("%d", &auxConfederacion);
 
-
+							vec[indice].idConfederacion = auxConfederacion;
 
 							break;
 						case 5:

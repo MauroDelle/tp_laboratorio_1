@@ -22,6 +22,8 @@ int main(void){
 	int opcion;
 	int flagIngreso = 0;
 	int proximoId = 1;
+	int preguntaSalir;
+	char salir = 'n';
 
 
 	eJugador jugadores[TAM];
@@ -96,12 +98,10 @@ int main(void){
 				}
 				break;
 			case 5:
-					printf("Adios..!\n");
 				break;
-
 		}
 
-	}while(opcion != 5);
+	}while(salir != 's');
 
 
 
