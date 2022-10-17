@@ -22,7 +22,7 @@ typedef struct
 
 #endif /* CONFEDERACION_H_ */
 
-int cargarDescripcionConfederacion(eConfederacion list[], int tam, int id, char nombre[], char region[]);
-int buscarConfederacion(eConfederacion list[], int tam, int id, int *pIndice);
-int listarConfederacion(eConfederacion list[], int tam);
-int validarConfederacion(eConfederacion list[], int tam, int id);
+int listarConfederaciones(eConfederacion confederaciones[], int tam);
+int cargarDescripcionConfederaciones(eConfederacion confederaciones[], int tam, int id, char nombre[]);
+int buscarConfederacion(eConfederacion confederaciones[], int tam, int id, int* pIndice);
+int validarConfederacion(eConfederacion confederaciones[],int tam, int id);

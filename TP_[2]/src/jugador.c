@@ -4,293 +4,214 @@
  *  Created on: 13 oct. 2022
  *      Author: delle
  */
-
-
 #include "jugador.h"
 #include "confederacion.h"
 
-/*
- * 	int id;
-	char nombre[50];
-	char posicion[50];
-	int numeroCamiseta;
-	int idConfederacion;
-	float salario;
-	int aniosContrato;
-	int isEmpty;
- *
- */
 
-int altaJugador(eJugador vec[], int tam,eConfederacion list[], int tamConf, int* pId)
+
+
+int altaJugador(eJugador vec[],int tam, eConfederacion confederaciones[], int tamConf, int* pLegajo)
 {
-	int retorno = 0;
-
+	int todoOk = 0;
 	int indice;
-	char auxNombre[100];
+	char auxCad[100];
 	char auxPosicion[100];
 	eJugador nuevoJugador;
 
 
-	if(vec != NULL && tam > 0 && pId != NULL)
+	if(vec != NULL && tam > 0 && pLegajo != NULL)
 	{
 		if(buscarJugadorLibre(vec, tam, &indice))
 		{
 			if(indice == -1)
 			{
-				printf("No hay lugar en el sistema\n");
+				printf("No hay lugar en el sistema!\n");
 			}
 			else
 			{
 				printf("Ingrese el nombre del jugador: ");
-				fflush(stdin);
-				gets(auxNombre);
+                fflush(stdin);
+                gets(auxCad);
 
-				while(strlen(auxNombre) > 50)
-				{
-					printf("Ingrese el nombre del jugador: ");
-					fflush(stdin);
-					gets(auxNombre);
-				}
-				strcpy(nuevoJugador.nombre, auxNombre);
-
-
-				printf("Ingrese su posicion: ");
-				fflush(stdin);
-				gets(auxPosicion);
-
-				while(strlen(auxPosicion) > 50)
-				{
-					printf("Ingrese su posicion: ");
-					fflush(stdin);
-					gets(auxPosicion);
-				}
-				strcpy(nuevoJugador.posicion, auxPosicion);
-
-				printf("Ingrese el numero de camiseta: ");
-				scanf("%d", &nuevoJugador.numeroCamiseta);
-
-				while(nuevoJugador.numeroCamiseta < 1 && nuevoJugador.numeroCamiseta > 99)
-				{
-					printf("Ingrese el numero de camiseta: ");
-					scanf("%d", &nuevoJugador.numeroCamiseta);
-				}
+                while(strlen(auxCad) >= 50)
+                {
+    				printf("Nombre demasiado largo. Reingrese nombre: ");
+                    fflush(stdin);
+                    gets(auxCad);
+                }
+                strcpy(nuevoJugador.nombre, auxCad);
 
 
-				printf("Ingrese el sueldo: ");
-				scanf("%f", &nuevoJugador.salario);
+                printf("Ingrese la posicion del jugador: ");
+                fflush(stdin);
+                gets(auxPosicion);
 
-				while(nuevoJugador.salario > 200000)
-				{
-					printf("Ingrese el sueldo: ");
-					scanf("%f", &nuevoJugador.salario);
-				}
-
-				printf("Ingrese cuantos años tiene de contrato: ");
-				scanf("%d", &nuevoJugador.aniosContrato);
-
-
-				while(nuevoJugador.aniosContrato > 8)
-				{
-					printf("Ingrese cuantos años tiene de contrato: ");
-					scanf("%d", &nuevoJugador.aniosContrato);
-				}
+                while(strlen(auxPosicion) >= 50)
+                {
+    				printf("La posicion es demasiado larga. Reingrese posicion: ");
+                    fflush(stdin);
+                    gets(auxPosicion);
+                }
+                strcpy(nuevoJugador.posicion, auxPosicion);
 
 
-				listarConfederacion(list, tamConf);
+                printf("Ingrese el numero de camiseta: ");
+                scanf("%d", &nuevoJugador.numeroCamiseta);
 
-				printf("Ingrese el id de la confederacion: ");
-				scanf("%d", &nuevoJugador.idConfederacion);
 
-				while(!validarConfederacion(list, tamConf, nuevoJugador.idConfederacion))
-				{
-					printf("Confederacion Invalida. Ingrese id confederacion: ");
-					scanf("%d", &nuevoJugador.idConfederacion);
+                printf("Ingrese el salario del jugador: ");
+                scanf("%f", &nuevoJugador.salario);
 
-				}
+                printf("Ingrese los años de contrato: ");
+                scanf("%d", &nuevoJugador.aniosContrato);
 
-				nuevoJugador.isEmpty = 0;
-				nuevoJugador.id = *pId;
-				*pId = *pId + 1;
-				vec[indice] = nuevoJugador;
-				retorno = 1;
+                listarConfederaciones(confederaciones, tamConf);
+
+                printf("Ingrese el ID de la Confederacion: ");
+                scanf("%d", &nuevoJugador.idConfederacion);
+
+                while(!validarConfederacion(confederaciones, tamConf, nuevoJugador.idConfederacion))
+                {
+                	printf("Confederacion Invalida. Reingrese ID: ");
+                	scanf("%d", &nuevoJugador.idConfederacion);
+
+                }
+
+                nuevoJugador.isEmpty = 0;
+                nuevoJugador.id = *pLegajo;
+                *pLegajo = *pLegajo + 1;
+                vec[indice] = nuevoJugador;
+                todoOk = 1;
 			}
 		}
+		else
+		{
+			printf("Ocurrio un problema con los parametros!\n");
+		}
 	}
-
-	return retorno;
+	return todoOk;
 }
 
 
 
-
-
-
-
-
-int mostrarJugador(eJugador e, eConfederacion list[], int tam)
+int mostrarJugador(eJugador e,eConfederacion confederaciones[],int tam)
 {
-	int retorno = 0;
-	char nombreConf[50];
-	char regionConf[50];
+    int todoOk = 0;
+    char nombreConfederacion[20];
 
-
-	if(list != NULL && tam > 0)
-	{
-		cargarDescripcionConfederacion(list, tam, e.idConfederacion, nombreConf, regionConf);
-
-		printf("%4d    %s     %s     %d      %d      %f      %d    %s     %s\n",
-				e.id,
-				e.nombre,
-				e.posicion,
-				e.numeroCamiseta,
-				e.idConfederacion,
-				e.salario,
-				e.aniosContrato,
-				nombreConf,
-				regionConf);
-
-		retorno = 1;
-	}
-
-
-
-	return retorno;
-}
-
-
-int listarJugadores(eJugador vec[], int tam, eConfederacion list[], int tamConf)
-{
-	int retorno = 0;
-    int flag = 0;
-
-
-    if(vec != NULL && tam > 0)
+    if(confederaciones != NULL && tam > 0)
     {
-    	printf("       ------ Listado Jugadores ------\n\n");
+    	cargarDescripcionConfederaciones(confederaciones, tam, e.idConfederacion, nombreConfederacion);
 
-    	printf("   ID       NOMBRE         POSICION         N° CAMISETA       CONFEDERACION           AÑOS CONTRATO          ");
-    	printf("--------------------------------------------------------------------------------\n");
 
-    	for(int i = 0; i < tam; i++)
-    	{
-    		if(!vec[i].isEmpty)
-    		{
-    			mostrarJugador(vec[i], list, tamConf);
-    			flag++;
-    		}
-    	}
-    	if(flag == 0)
-    	{
-    		printf("No hay jugadores en el sistema!\n");
-
-    	}
-
-    	retorno = 1;
+    	printf("%d     %s         %s        %d         %0.1f          %d               %s\n",e.id,
+    			                                                                     e.nombre,
+																				   e.posicion,
+																		     e.numeroCamiseta,
+																			        e.salario,
+																			  e.aniosContrato,
+																		  nombreConfederacion);
+    	todoOk = 1;
     }
 
 
-	return retorno;
+    return todoOk;
 }
 
 
-
-
-
-
-
-
-int inicializarJugadores(eJugador list[], int tam)
+int listarJugador(eJugador vec[], int tam, eConfederacion confederaciones[], int tamConf)
 {
-	int retorno = 0;
+	int todoOk = 0;
+	int flag = 0;
 
-	if(list != NULL && tam > 0)
+
+	if(vec != NULL && tam >0)
 	{
-		for(int i = 0; i < tam; i++)
-		{
-			list[i].isEmpty = 1;
-		}
-		retorno = 1;
+		printf("          *** Listado de Jugadores ***\n\n");
+		printf("|ID  |   NOMBRE   |     | POSICION   | N°CAMISETA |  SUELDO    | AÑOS de CONTRATO  | CONFEDERACION |\n");
+        printf("-----------------------------------------------------------------------------------------------------\n");
+
+        for(int i = 0; i < tam; i++)
+        {
+        	if(!vec[i].isEmpty)
+        	{
+        		mostrarJugador(vec[i], confederaciones, tam);
+        		flag++;
+        	}
+        }
+        if(flag == 0)
+        {
+        	printf("No hay jugadores en el sistema!\n");
+        }
+        printf("\n\n");
+
+        todoOk = 1;
 	}
 
-	return retorno;
+	return todoOk;
 }
 
-int buscarJugadorLibre(eJugador list[], int tam, int* pIndex)
+
+
+
+
+
+
+
+int inicializarJugador(eJugador vec[], int tam)
 {
-	int retorno = 0;
-
-	if(list != NULL && tam > 0 && pIndex != NULL)
-	{
-		*pIndex = -1;
-
-		for(int i = 0; i < tam; i++)
-		{
-			if(list[i].isEmpty)
-			{
-				*pIndex = i;
-				break;
-			}
-		}
-	}
-
-	return retorno;
+    int todoOk = 0;
+    if(vec != NULL && tam > 0)
+    {
+        for(int i=0; i < tam; i++)
+        {
+            vec[i].isEmpty = 1;
+        }
+        todoOk = 1;
+    }
+    return todoOk;
 }
 
 
-int buscarJugador(eJugador list[], int tam, int id, int *pIndex)
+int buscarJugadorLibre(eJugador vec[], int tam, int* pIndex)
 {
-	int retorno = 0;
+    int todoOk = 0;
+    if(vec != NULL && tam > 0 && pIndex != NULL)
+    {
+        *pIndex = -1;
+        for(int i=0; i < tam; i++)
+        {
+            if( vec[i].isEmpty )
+            {
+                *pIndex = i;
+                break;
+            }
+        }
+        todoOk = 1;
+    }
+    return todoOk;
 
-	if(list != NULL && tam > 0 && id > 0 && pIndex != NULL)
-	{
-		*pIndex = -1;
-		for(int i = 0; i < tam; i++)
-		{
-			if(list[i].isEmpty == 0 && list[i].id == id)
-			{
-				*pIndex = i;
-				break;
-			}
-		}
-	}
-
-	return retorno;
 }
 
-
-int hardcodearJugadores(eJugador list[], int tam, int cant, int* pId)
+int buscarJugador(eJugador vec[], int tam,int legajo, int *pIndex)
 {
-	int retorno = 0;
+    int todoOk = 0;
+    if(vec != NULL && tam > 0 && pIndex != NULL && legajo > 0)
+    {
+        *pIndex = -1;
+        for(int i=0; i < tam; i++)
+        {
+            if(vec[i].isEmpty == 0 &&  vec[i].id == legajo)
+            {
+                *pIndex = i;
+                break;
+            }
+        }
+        todoOk = 1;
+    }
+    return todoOk;
 
-	eJugador jugadores[] =
-	{
-			{0,"Lionel Messi","Delantero",30,0,200000,2},
-			{0,"Givanildo Vieira(Hulk)","Delantero",7,0,800000,3},
-			{0,"Mohamed El Shenawy","Arquero",1,0,790000,3},
-			{0,"Enzo Copetti","Delantero",9,0,500000,2},
-			{0,"Critian Romero","Defensor",2,0,980000,4},
-			{0,"Hugo Lloris","Arquero",1,0,800000,2},
-			{0,"Eerling Haaland","Delantero",9,0,300000,5},
-			{0,"Martín Campaña","Arquero",1,0,600000,3},
-			{0,"Martín Benitez","Delantero",10,0,90000,3},
-			{0,"Cristiano Ronaldo","Delantero",7,0,160000,2}
-	};
-
-	if(list != NULL && tam > 0 && pId != NULL && cant > 0 && cant <= tam)
-	{
-		for(int i = 0; i < cant; i++)
-		{
-			list[i] = jugadores[i];
-			list[i].id = *pId;
-			*pId = *pId + 1;
-
-		}
-		retorno = 1;
-	}
-
-	return retorno;
 }
-
 
 
 

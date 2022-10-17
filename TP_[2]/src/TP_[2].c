@@ -13,22 +13,29 @@
 #include "confederacion.h"
 #include "menu.h"
 #include "jugador.h"
-#define TAM 8
-#define TAMC 5
+#define TAMC 6
+#define TAM 10
 int main(void){
 
 	setbuf(stdout,NULL);
 
 	int opcion;
 	int flagIngreso = 0;
-
 	int proximoId = 1;
 
-	eJugador lista[TAM];
-	eConfederacion confederaciones[TAMC];
 
-	inicializarJugadores(lista, TAM);
-	hardcodearJugadores(lista, TAM, 5, &proximoId);
+	eJugador jugadores[TAM];
+	eConfederacion confederaciones[TAMC] =
+	{
+			{100,"CONMEBOL","SUDAMERICA",1916},
+			{101,"UEFA","EUROPA",1954},
+			{102,"AFC","ASIA",1954},
+			{103,"CAF","AFRICA",1957},
+			{104,"CONCACAF","NORTE Y CENTRO AMERICA",1961},
+			{105,"OFC","OCEANIA",1966}
+	};
+
+	inicializarJugador(jugadores, TAM);
 
 
 	do
@@ -38,9 +45,9 @@ int main(void){
 		switch(opcion)
 		{
 			case 1:
-				printf("Hola");
-				altaJugador(lista, TAM, confederaciones, TAMC, &proximoId);	//averiguar pq no toma esto
 				flagIngreso = 1;
+
+				altaJugador(jugadores, TAM, confederaciones, TAMC, &proximoId);
 
 				break;
 			case 2:
@@ -50,7 +57,7 @@ int main(void){
 					}
 					else
 					{
-
+						listarJugador(jugadores, TAM, confederaciones, TAMC);
 					}
 				break;
 			case 3:
@@ -71,7 +78,6 @@ int main(void){
 				else
 				{
 
-					listarJugadores(lista, TAM, confederaciones, TAMC);
 
 				}
 				break;
