@@ -47,7 +47,14 @@ int main(void){
 			case 1:
 				flagIngreso = 1;
 
-				altaJugador(jugadores, TAM, confederaciones, TAMC, &proximoId);
+				if(altaJugador(jugadores, TAM, confederaciones, TAMC, &proximoId))
+				{
+					printf("Jugador agregado con exito!\n");
+				}
+				else
+				{
+					printf("Hubo un problema al hacer el alta del jugador\n");
+				}
 
 				break;
 			case 2:
@@ -70,7 +77,10 @@ int main(void){
 				}
 				else
 				{
-
+					if(modificarJugador(jugadores, TAM, confederaciones, TAMC) == 0)
+					{
+						printf("Hubo un problema al modificar el jugador\n");
+					}
 				}
 				break;
 			case 4:

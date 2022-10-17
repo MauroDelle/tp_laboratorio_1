@@ -28,6 +28,7 @@ typedef struct
 
 int altaJugador(eJugador vec[],int tam, eConfederacion confederaciones[], int tamConf, int* pLegajo);
 int bajaJugador(eJugador vec[], int tam, eConfederacion confederaciones[], int tamC);
+int modificarJugador(eJugador vec[], int tam, eConfederacion confederaciones[],int tamC);
 
 
 int inicializarJugador(eJugador vec[], int tam);

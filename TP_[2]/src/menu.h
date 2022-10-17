@@ -12,7 +12,7 @@
 
 
 int menuPrincipal();
-
+int menuModificarJugador();
 
 
 #endif /* MENU_H_ */

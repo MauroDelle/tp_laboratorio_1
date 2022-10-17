@@ -6,9 +6,94 @@
  */
 #include "jugador.h"
 #include "confederacion.h"
+#include "menu.h"
 
 
 
+int modificarJugador(eJugador vec[], int tam, eConfederacion confederaciones[],int tamC)
+{
+    int todoOk = 0;
+    int indice;
+    int legajo;
+    char salir = 'n';
+    char auxCad[100];
+    char auxPosicion[100];
+    eJugador nuevoJugador;
+
+	if(vec != NULL && tam > 0)
+	{
+
+		listarJugador(vec, tam, confederaciones, tamC);
+		printf("Ingrese el ID del jugador que desea modificar: ");
+		scanf("%d", &legajo);
+
+		if(buscarJugador(vec, tam, legajo, &indice))
+		{
+			if(indice == -1)
+			{
+				printf("no hay un jugador con el ID %d\n", legajo);
+			}
+			else
+			{
+				mostrarJugador(vec[indice], confederaciones, tamC);
+
+				do
+				{
+					switch(menuModificarJugador())
+					{
+						case 1:
+							printf("Ingrese nuevo nombre: ");
+		                    fflush(stdin);
+		                    gets(auxCad);
+		                    strcpy(vec[indice].nombre, auxCad);
+		                    printf("Se ha modificado el nombre\n");
+							break;
+						case 2:
+							printf("Ingrese la nueva posicion: ");
+		                    fflush(stdin);
+		                    gets(auxPosicion);
+		                    strcpy(vec[indice].posicion, auxPosicion);
+		                    printf("Se ha modificado la posicion\n");
+							break;
+						case 3:
+	                        printf("Ingrese el nuevo Numero de Camiseta: ");
+	                        scanf("%d", &vec[indice].numeroCamiseta);
+	                        printf("Se ha modificado el Numero de Camiseta\n");
+							break;
+						case 4:
+
+
+
+
+							break;
+						case 5:
+	                        printf("Ingrese nuevo salario: ");
+	                        scanf("%f", &vec[indice].salario);
+	                        printf("Se ha modificado el salario\n");
+							break;
+						case 6:
+	                        printf("Ingrese los años de contrato: ");
+	                        scanf("%d", &vec[indice].aniosContrato);
+	                        printf("Se han modificado los años de contrato\n");
+							break;
+						case 7:
+							salir = 's';
+							break;
+					}
+				}while(salir != 's');
+			}
+		}
+		else
+		{
+			printf("Ocurrio un problema al buscar al jugador!\n");
+		}
+
+		todoOk = 1;
+
+	}
+
+    return todoOk;
+}
 
 int bajaJugador(eJugador vec[], int tam, eConfederacion confederaciones[], int tamC)
 {
