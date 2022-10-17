@@ -57,7 +57,10 @@ int main(void){
 					}
 					else
 					{
-						listarJugador(jugadores, TAM, confederaciones, TAMC);
+						if(bajaJugador(jugadores, TAM, confederaciones, TAMC) == 0)
+						{
+							printf("Problema al realizar la baja del jugador :(\n");
+						}
 					}
 				break;
 			case 3:
@@ -78,6 +81,7 @@ int main(void){
 				else
 				{
 
+						listarJugador(jugadores, TAM, confederaciones, TAMC);
 
 				}
 				break;

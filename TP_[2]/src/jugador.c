@@ -10,6 +10,59 @@
 
 
 
+int bajaJugador(eJugador vec[], int tam, eConfederacion confederaciones[], int tamC)
+{
+    int todoOk = 0;
+    int indice;
+    int legajo;
+    char confirma;
+
+
+    if(vec != NULL && tam > 0)
+    {
+    	listarJugador(vec, tam, confederaciones, tamC);
+    	printf("Ingrese ID: ");
+    	scanf("%d", &legajo);
+
+    	if(buscarJugador(vec, tam, legajo, &indice))
+    	{
+
+    			if(indice == -1)
+    			{
+    				printf("No hay un jugador con el ID  %d\n", legajo);
+    			}
+    			else
+    			{
+    				mostrarJugador(vec[indice], confederaciones, tamC);
+    				printf("Confirmar Baja?: ");
+    				fflush(stdin);
+    				scanf("%c", &confirma);
+
+    				if(confirma != 'S' && confirma != 's')
+    				{
+    					printf("Baja cancelada por el usuario!\n");
+    				}
+    				else
+    				{
+    					vec[indice].isEmpty = 1;
+    					printf("Baja realizada con exito!\n");
+    					todoOk = 1;
+    				}
+    			}
+    	}
+    	else
+    	{
+    		printf("Ocurrio un problema al buscar el jugador!\n");
+
+    	}
+
+    	todoOk = 1;
+    }
+
+    return todoOk;
+}
+
+
 int altaJugador(eJugador vec[],int tam, eConfederacion confederaciones[], int tamConf, int* pLegajo)
 {
 	int todoOk = 0;

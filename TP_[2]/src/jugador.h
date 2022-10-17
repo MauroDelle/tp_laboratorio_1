@@ -26,15 +26,17 @@ typedef struct
 
 #endif /* JUGADOR_H_ */
 
+int altaJugador(eJugador vec[],int tam, eConfederacion confederaciones[], int tamConf, int* pLegajo);
+int bajaJugador(eJugador vec[], int tam, eConfederacion confederaciones[], int tamC);
+
+
 int inicializarJugador(eJugador vec[], int tam);
 int buscarJugadorLibre(eJugador vec[], int tam, int* pIndex);
 int buscarJugador(eJugador vec[], int tam,int legajo, int *pIndex);
 
+
 int mostrarJugador(eJugador e,eConfederacion confederaciones[],int tam);
 int listarJugador(eJugador vec[], int tam, eConfederacion confederaciones[], int tamConf);
-int altaJugador(eJugador vec[],int tam, eConfederacion confederaciones[], int tamConf, int* pLegajo);
-
-
 
 
 
