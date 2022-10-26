@@ -17,8 +17,8 @@ typedef struct
 	char nombre[50];
 	char posicion[50];
 	int numeroCamiseta;
-	int idConfederacion;
 	float salario;
+	int idConfederacion;
 	int aniosContrato;
 	int isEmpty;
 

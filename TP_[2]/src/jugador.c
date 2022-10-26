@@ -6,6 +6,7 @@
  */
 #include "jugador.h"
 #include "confederacion.h"
+#include "utn.h"
 #include "menu.h"
 
 
@@ -16,9 +17,11 @@ int modificarJugador(eJugador vec[], int tam, eConfederacion confederaciones[],i
     int indice;
     int legajo;
     char salir = 'n';
+
     char auxCad[100];
     char auxPosicion[100];
     int auxConfederacion;
+    float auxContrato;
 
 	if(vec != NULL && tam > 0)
 	{
@@ -63,9 +66,7 @@ int modificarJugador(eJugador vec[], int tam, eConfederacion confederaciones[],i
 						case 4:
 							listarConfederaciones(confederaciones, tamC);
 
-							printf("Ingrese el ID de la nueva confederacion: ");
-							scanf("%d", &auxConfederacion);
-
+							getValidInt("\nINGRESE LA CONFEDERACION: ", "\nINGRESE UN VALOR VALIDO ", "\nINGRESE NUMEROS UNICAMENTE: ", 100,105, &auxConfederacion);
 							vec[indice].idConfederacion = auxConfederacion;
 
 							break;
@@ -75,8 +76,8 @@ int modificarJugador(eJugador vec[], int tam, eConfederacion confederaciones[],i
 	                        printf("Se ha modificado el salario\n");
 							break;
 						case 6:
-	                        printf("Ingrese los años de contrato: ");
-	                        scanf("%d", &vec[indice].aniosContrato);
+							getValidFloat("Ingrese los años de contrato: ", "Error! Entre 1-5", "\nINGRESE NUMEROS UNICAMENTE: ", 1, 5, &auxContrato);
+							vec[indice].aniosContrato = auxContrato;
 	                        printf("Se han modificado los años de contrato\n");
 							break;
 						case 7:
@@ -155,8 +156,15 @@ int altaJugador(eJugador vec[],int tam, eConfederacion confederaciones[], int ta
 {
 	int todoOk = 0;
 	int indice;
+
+	int auxCamiseta;
 	char auxCad[100];
 	char auxPosicion[100];
+	float auxFloat;
+	int auxContrato;
+	int auxConfe;
+
+
 	eJugador nuevoJugador;
 
 
@@ -170,46 +178,25 @@ int altaJugador(eJugador vec[],int tam, eConfederacion confederaciones[], int ta
 			}
 			else
 			{
-				printf("Ingrese el nombre del jugador: ");
-                fflush(stdin);
-                gets(auxCad);
 
-                while(strlen(auxCad) >= 50)
-                {
-    				printf("Nombre demasiado largo. Reingrese nombre: ");
-                    fflush(stdin);
-                    gets(auxCad);
-                }
-                strcpy(nuevoJugador.nombre, auxCad);
+				getValidString("Ingrese el nombre del jugador: ", "\nError, solo letras", "nINGRESE EN UN RANGO VALIDO: ", auxCad, 1, 50);
+				strcpy(nuevoJugador.nombre, auxCad);
 
+				getValidString("Ingrese la posicion: ", "\nError, solo letras", "nINGRESE EN UN RANGO VALIDO: ", auxPosicion, 1, 50);
+				strcpy(nuevoJugador.posicion, auxPosicion);
 
-                printf("Ingrese la posicion del jugador: ");
-                fflush(stdin);
-                gets(auxPosicion);
+				getValidInt("\nINGRESE LA CAMISETA: ", "\nINGRESE UN VALOR VALIDO ", "\nINGRESE NUMEROS UNICAMENTE: ", 1,99, &auxCamiseta);
+				nuevoJugador.numeroCamiseta= auxCamiseta;
 
-                while(strlen(auxPosicion) >= 50)
-                {
-    				printf("La posicion es demasiado larga. Reingrese posicion: ");
-                    fflush(stdin);
-                    gets(auxPosicion);
-                }
-                strcpy(nuevoJugador.posicion, auxPosicion);
+				getFloatValidation(&auxFloat, "Ingrese el salario del jugador: ", "Error! Entre 65000-250000", 50000, 250000);
+				nuevoJugador.salario = auxFloat;
 
-
-                printf("Ingrese el numero de camiseta: ");
-                scanf("%d", &nuevoJugador.numeroCamiseta);
-
-
-                printf("Ingrese el salario del jugador: ");
-                scanf("%f", &nuevoJugador.salario);
-
-                printf("Ingrese los años de contrato: ");
-                scanf("%d", &nuevoJugador.aniosContrato);
+				getValidInt("\nINGRESE LOS AÑOS DE CONTRATO: ", "\nINGRESE UN VALOR VALIDO ", "\nINGRESE NUMEROS UNICAMENTE: ", 1,6, &auxContrato);
+				nuevoJugador.aniosContrato = auxContrato;
 
                 listarConfederaciones(confederaciones, tamConf);
-
-                printf("Ingrese el ID de la Confederacion: ");
-                scanf("%d", &nuevoJugador.idConfederacion);
+				getValidInt("\nINGRESE LA CONFEDERACION: ", "\nINGRESE UN VALOR VALIDO ", "\nINGRESE NUMEROS UNICAMENTE: ", 100,105, &auxConfe);
+				nuevoJugador.idConfederacion = auxConfe;
 
                 while(!validarConfederacion(confederaciones, tamConf, nuevoJugador.idConfederacion))
                 {
@@ -245,7 +232,7 @@ int mostrarJugador(eJugador e,eConfederacion confederaciones[],int tam)
     	cargarDescripcionConfederaciones(confederaciones, tam, e.idConfederacion, nombreConfederacion);
 
 
-    	printf("%d     %s         %s        %d         %0.1f          %d               %s\n",e.id,
+    	printf("%d     %s         %s        %d         %f          %d               %s\n",e.id,
     			                                                                     e.nombre,
 																				   e.posicion,
 																		     e.numeroCamiseta,
@@ -269,8 +256,8 @@ int listarJugador(eJugador vec[], int tam, eConfederacion confederaciones[], int
 	if(vec != NULL && tam >0)
 	{
 		printf("          *** Listado de Jugadores ***\n\n");
-		printf("|ID  |   NOMBRE   |     | POSICION   | N°CAMISETA |  SUELDO    | AÑOS de CONTRATO  | CONFEDERACION |\n");
-        printf("-----------------------------------------------------------------------------------------------------\n");
+		printf("|ID  |   NOMBRE   |   POSICION   | N°CAMISETA |  SUELDO    | AÑOS de CONTRATO  | CONFEDERACION |\n");
+        printf("-------------------------------------------------------------------------------------------------\n");
 
         for(int i = 0; i < tam; i++)
         {

@@ -7,7 +7,7 @@
  Description : Hello World in C, Ansi-style
  ============================================================================
  */
-
+#include "utn.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include "confederacion.h"
@@ -22,11 +22,21 @@ int main(void){
 	int opcion;
 	int flagIngreso = 0;
 	int proximoId = 1;
-	int preguntaSalir;
+	char preguntaSalir;
 	char salir = 'n';
+	int opcionInforme;
 
 
 	eJugador jugadores[TAM];
+	/*
+	{
+			{1,"Lionel Messi","Delantero",10,200000,101,4},
+			{2,"Givanildo Vieira(Hulk)","Delantero",7,100000,100,3},
+			{3,"Mohamed El Shenawy","Arquero",80000,103,2},
+			{4,"Enzo Copetti","Delantero",9,86000,100,4}
+	};
+*/
+
 	eConfederacion confederaciones[TAMC] =
 	{
 			{100,"CONMEBOL","SUDAMERICA",1916},
@@ -47,17 +57,15 @@ int main(void){
 		switch(opcion)
 		{
 			case 1:
-				flagIngreso = 1;
-
 				if(altaJugador(jugadores, TAM, confederaciones, TAMC, &proximoId))
 				{
 					printf("Jugador agregado con exito!\n");
+					flagIngreso = 1;
 				}
 				else
 				{
 					printf("Hubo un problema al hacer el alta del jugador\n");
 				}
-
 				break;
 			case 2:
 					if(flagIngreso == 0)
@@ -92,20 +100,46 @@ int main(void){
 				}
 				else
 				{
+					printf("\nINFORMES\n"
+						   "1. LISTADO DE LOS JUGADORES ORDENADOS ALFABÉTICAMENTE POR NOMBRE DE CONFEDERACION Y NOMBRE DE JUGADOR\n"
+						   "2. LISTADO DE CONFEDERACIONES CON SUS JUGADORES.\n"
+						   "3. TOTAL Y PROMEDIO DE TODOS LOS SALARIOS Y CUANTOS JUGADORES COBRAN MÁS DEL SALARIO PROMEDIO\n"
+						   "4. INFORMAR LA CONFEDERACION CON MAYOR CANTIDAD DE AÑOS DE CONTRATOS TOTAL\n"
+						   "5. INFORMAR PORCENTAJE DE JUGADORES POR CADA CONFEDERACIÓN\n"
+						   "6. INFORMAR CUAL ES LA REGIÓN CON MÁS JUGADORES Y EL LISTADO DE LOS MISMOS\n"
+					       "7. INFORME GENERAL\n\n");
+					utn_getNumero(&opcionInforme, "SELECCIONE EL INFORME QUE DESEA VER: ", "ERROR. ", 1, 7, 3);
 
-						listarJugador(jugadores, TAM, confederaciones, TAMC);
+					switch(opcionInforme)
+					{
+						case 1:
 
+							break;
+						case 2:
+							break;
+						case 3:
+							break;
+						case 4:
+							break;
+						case 5:
+							break;
+						case 6:
+							break;
+						case 7:
+							listarJugador(jugadores, TAM, confederaciones, TAMC);
+							break;
+					}
 				}
 				break;
 			case 5:
+				getUserConfirmation(&preguntaSalir, "Desea salir? (s-n)", "Solamente (S-N)");
+				if(preguntaSalir == 's')
+				{
+					salir = 's';
+				}
 				break;
 		}
-
 	}while(salir != 's');
-
-
-
-
 
 	return 0;
 }
