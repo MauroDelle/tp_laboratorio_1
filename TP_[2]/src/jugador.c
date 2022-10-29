@@ -25,7 +25,7 @@ int hardcodearJugadores(eJugador vec[], int tam, int cant, int* pLegajo)
 			{0,"Enzo Copetti", "Delantero", 9,86000,100,4},
 			{0,"Keylor Navas", "Arquero", 1,84000,101,5},
 			{0,"Mauro Delle", "Delantero", 30,89000,104,3},
-			{0,"Ezequiel Taboada", "Defensor", 2,88000,100,4},
+			{0,"Ezequiel Taboada", "Defensor", 2,250000,100,4},
 			{0,"Martin Cauteruccio", "Delantero", 9,75000,100,2},
 			{0,"Toto Salvio", "Delantero", 11,90000,104,4},
 			{0,"Bernardo Silva", "Mediocampista", 8,150000,101,2}
@@ -251,6 +251,7 @@ int altaJugador(eJugador vec[],int tam, eConfederacion confederaciones[], int ta
 	}
 	return todoOk;
 }
+
 
 
 

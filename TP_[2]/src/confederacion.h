@@ -24,6 +24,8 @@ typedef struct
 
 #endif /* CONFEDERACION_H_ */
 
+int menuModificarConfederacion();
+
 int listarConfederaciones(eConfederacion confederaciones[], int tam);
 int cargarDescripcionConfederaciones(eConfederacion confederaciones[], int tam, int id, char nombre[]);
 int buscarConfederacion(eConfederacion confederaciones[], int tam, int id, int* pIndice);
@@ -31,7 +33,7 @@ int validarConfederacion(eConfederacion confederaciones[],int tam, int id);
 int cargarNombreYRegion(eConfederacion confederaciones[], int tam, int id,char nombre[], char region[]);
 int mostrarConfederacion(eConfederacion e, int tam,eConfederacion confederaciones[],int tamC);
 int hardcodearConfederaciones(eConfederacion vec[], int tam, int cant,int* pLegajo);
-
+int modificarConfederacion(eConfederacion vec[], int tam);
 //alta
 int altaConfederacion(eConfederacion vec[], int tam, int* pLegajo);
 int inicializarConfederacion(eConfederacion vec[],int tam);

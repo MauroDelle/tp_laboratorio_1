@@ -107,13 +107,15 @@ int main(void){
 							listarConfederacionesYJugadores(jugadores, TAM, confederaciones, TAMC);
 							break;
 						case 3:
+							calcularSalarios(jugadores, TAM, confederaciones, TAMC);
 							break;
 						case 4:
+							confederacionMayorAniosContrato(jugadores, TAM, confederaciones, TAMC);
 							break;
 						case 5:
+
 							break;
 						case 6:
-
 							break;
 						case 7:
 							listarJugador(jugadores, TAM, confederaciones, TAMC);

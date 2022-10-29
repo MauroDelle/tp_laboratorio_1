@@ -9,8 +9,81 @@
 
 
 
+int modificarConfederacion(eConfederacion vec[], int tam)
+{
+	int todoOk = 0;
+	int indice;
+	int legajo;
+	char salir = 'n';
+	char auxCad[100];
+	char auxRegion[100];
+	int auxAnio;
 
+	if(vec != NULL && tam > 0)
+	{
+		listarConfederaciones(vec, tam);
+		getValidInt("\nINGRESE EL ID DE LA CONFEDERACION: ", "\nINGRESE UN VALOR VALIDO ", "\nINGRESE NUMEROS UNICAMENTE: ", 100,110, &legajo);
 
+		if(buscarConfederacion(vec, tam, legajo, &indice))
+		{
+			if(indice == -1)
+			{
+				printf("no hay una confederacion con el ID %d\n", legajo);
+
+			}
+			else
+			{
+				mostrarConfederacion(vec[indice], tam, vec, tam);
+
+				do
+				{
+					switch(menuModificarConfederacion())
+					{
+						case 1:
+							getValidString("Ingrese el nombre de la confederacion: ", "\nError, solo letras", "nINGRESE EN UN RANGO VALIDO: ", auxCad, 1, 50);
+							strcpy(vec[indice].nombre, auxCad);
+		                    printf("Se ha modificado el nombre\n");
+							break;
+						case 2:
+							getValidString("Ingrese la region de la confederacion: ", "\nError, solo letras", "nINGRESE EN UN RANGO VALIDO: ", auxCad, 1, 50);
+							strcpy(vec[indice].region, auxRegion);
+		                    printf("Se ha modificado la region\n");
+							break;
+						case 3:
+							getValidInt("\nINGRESE el año de creacion: ", "\nINGRESE UN VALOR VALIDO ", "\nINGRESE NUMEROS UNICAMENTE: ", 1910,2022, &auxAnio);
+							vec[indice].anioCreacion = auxAnio;
+							printf("Se han modificado el año de creacion");
+							break;
+						case 4:
+							salir = 's';
+							break;
+					}
+				}while(salir != 's');
+			}
+		}
+		else
+		{
+			printf("hubo un proble al buscar la confederacion!\n");
+		}
+
+		todoOk = 1;
+	}
+	return todoOk;
+}
+
+int menuModificarConfederacion()
+{
+	int opcion;
+	printf("     *** Campos a modificar ***\n");
+	printf("1- NOMBRE\n"
+		   "2- REGION\n"
+		   "3- AÑO CREACION\n"
+		   "4- SALIR\n"
+		   "SELECCIONE UNA OPCION: ");
+	scanf("%d", &opcion);
+
+	return opcion;
+}
 
 
 
@@ -49,37 +122,6 @@ int buscarConfederacion(eConfederacion confederaciones[], int tam, int id, int* 
     }
     return todoOk;
 }
-/*
-int ordenarAlfabeticoNombreYConfederacion(eConfederacion confederaciones[], int tam,eJugador jugadores[], int tamJ)
-{
-	int todoOk = 0;
-	int indice;
-	eConfederacion conf;
-	eJugador jugador;
-
-
-	if(confederaciones != NULL && tam > 0 && jugadores != NULL && tamJ > 0)
-	{
-		for(int i = 0; i < tamJ - 1; i++)
-		{
-			if(jugadores[i].isEmpty != 1)
-			{
-				for(int j = i + 1; j < tam; j++)
-				{
-					if(buscarConfederacion(confederaciones, tam, jugador[i].idConfederacion, &indice))
-					{
-
-
-
-					}
-				}
-			}
-		}
-	}
-
-	return todoOk;
-}
-*/
 
 int hardcodearConfederaciones(eConfederacion vec[], int tam, int cant,int* pLegajo)
 {
@@ -108,6 +150,8 @@ int hardcodearConfederaciones(eConfederacion vec[], int tam, int cant,int* pLega
 
 	return todoOk;
 }
+
+
 
 int inicializarConfederacion(eConfederacion vec[],int tam)
 {
@@ -154,7 +198,7 @@ int mostrarConfederacion(eConfederacion e, int tam,eConfederacion confederacione
 	{
 		cargarNombreYRegion(confederaciones, tam, e.id, auxNombre, auxRegion);
 
-		printf("%d       %s         %s         %d",e.id,e.nombre,e.region,e.anioCreacion);
+		printf("%d       %s         %s         %d",e.id,auxNombre,auxRegion,e.anioCreacion);
 
 		todoOk = 1;
 	}
