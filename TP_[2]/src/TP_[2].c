@@ -13,8 +13,8 @@
 #include "confederacion.h"
 #include "menu.h"
 #include "jugador.h"
-#define TAMC 6
-#define TAM 10
+#include "informes.h"
+
 int main(void){
 
 	setbuf(stdout,NULL);
@@ -22,32 +22,20 @@ int main(void){
 	int opcion;
 	int flagIngreso = 0;
 	int proximoId = 1;
+	int proximoIdConfederaciones = 100;
 	char preguntaSalir;
 	char salir = 'n';
 	int opcionInforme;
 
 
 	eJugador jugadores[TAM];
-	/*
-	{
-			{1,"Lionel Messi","Delantero",10,200000,101,4},
-			{2,"Givanildo Vieira(Hulk)","Delantero",7,100000,100,3},
-			{3,"Mohamed El Shenawy","Arquero",80000,103,2},
-			{4,"Enzo Copetti","Delantero",9,86000,100,4}
-	};
-*/
-
-	eConfederacion confederaciones[TAMC] =
-	{
-			{100,"CONMEBOL","SUDAMERICA",1916},
-			{101,"UEFA","EUROPA",1954},
-			{102,"AFC","ASIA",1954},
-			{103,"CAF","AFRICA",1957},
-			{104,"CONCACAF","NORTE Y CENTRO AMERICA",1961},
-			{105,"OFC","OCEANIA",1966}
-	};
+	eConfederacion confederaciones[TAMC];
 
 	inicializarJugador(jugadores, TAM);
+	hardcodearJugadores(jugadores, TAM, 10, &proximoId);
+	inicializarConfederacion(confederaciones, TAMC);
+	hardcodearConfederaciones(confederaciones, TAMC, 6, &proximoIdConfederaciones);
+	flagIngreso = 1;
 
 
 	do
@@ -113,9 +101,10 @@ int main(void){
 					switch(opcionInforme)
 					{
 						case 1:
-
+							primerListado(jugadores, TAM, confederaciones, TAMC, 0);
 							break;
 						case 2:
+							listarConfederacionesYJugadores(jugadores, TAM, confederaciones, TAMC);
 							break;
 						case 3:
 							break;
@@ -124,6 +113,7 @@ int main(void){
 						case 5:
 							break;
 						case 6:
+
 							break;
 						case 7:
 							listarJugador(jugadores, TAM, confederaciones, TAMC);

@@ -4,6 +4,8 @@
  *  Created on: 13 oct. 2022
  *      Author: delle
  */
+#define TAMC 6
+#define TAM 10
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -36,6 +38,7 @@ int buscarJugadorLibre(eJugador vec[], int tam, int* pIndex);
 int buscarJugador(eJugador vec[], int tam,int legajo, int *pIndex);
 
 
+int hardcodearJugadores(eJugador vec[], int tam, int cant, int* pLegajo);
 int mostrarJugador(eJugador e,eConfederacion confederaciones[],int tam);
 int listarJugador(eJugador vec[], int tam, eConfederacion confederaciones[], int tamConf);
 
