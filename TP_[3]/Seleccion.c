@@ -78,10 +78,10 @@ int selec_searchForId(LinkedList* pArrayListSeleccion, int id)
 		if(selec_getId(pAuxSeleccion, &auxId)==1 && auxId==id)
 		{
 			todoOk=indice;//SI ENCUENTRA DEVUELE INDICE
+			break;
 		}
 	}
 	return todoOk;
-
 }
 
 int selec_sortByConfederacion(void* arg1, void* arg2)

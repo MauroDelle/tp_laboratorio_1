@@ -208,14 +208,13 @@ int jug_getNombreCompleto(Jugador* this,char* nombreCompleto)
 
 
 
-
 //SETTERS
 
 int jug_setIdSeleccion(Jugador* this,int idSeleccion)
 {
 	int todoOk = -1;
 
-	if(this != NULL && idSeleccion)
+	if(this != NULL && idSeleccion >= 0)
 	{
 		this->idSeleccion = idSeleccion;
 

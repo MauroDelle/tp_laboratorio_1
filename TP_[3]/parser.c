@@ -4,6 +4,27 @@
 #include "Jugador.h"
 #include "Seleccion.h"
 
+
+int parser_saveAsBinary(FILE* pFile , LinkedList* pArrayListJugadores)
+{
+	int retorno = 0;
+	int escrito;
+
+	Jugador* auxJugador = NULL;
+
+	for(int i = 0;i<ll_len(pArrayListJugadores);i++)
+	{
+		auxJugador = ll_get(pArrayListJugadores, i);
+		escrito = fwrite(auxJugador,sizeof(Jugador),1,pFile);
+		if(escrito < 1)
+		{
+			retorno = -1;
+			break;
+		}
+	}
+	return retorno;
+}
+
 /** \brief Parsea los datos de los jugadores desde el archivo jugadores.csv (modo texto).
  *
  * \param path char*

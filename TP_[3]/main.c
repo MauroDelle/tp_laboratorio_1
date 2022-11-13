@@ -18,7 +18,6 @@ int main()
 	int opcion;
     LinkedList* listaJugadores = ll_newLinkedList(); //init
     LinkedList* listaSelecciones = ll_newLinkedList();
-
     char confirmation = 'n';
     int fileState = 0;
 
@@ -49,6 +48,7 @@ int main()
             	{
             		printf("\nEXISTING ERROR WHILE OPENING SELECCIONES.CSV IN TEXT MODE!\n");
             	}
+
 
             	system("Pause");
                 break;
@@ -94,7 +94,7 @@ int main()
 						system("Pause");
 						break;
 					case 3:
-
+						controller_listarConvocados(listaSelecciones, listaJugadores);
 						break;
 					case 4:
 
@@ -118,8 +118,12 @@ int main()
          	   	  }
             	break;
             case 8:
+            	//controller_removerConvocados(listaSelecciones, listaJugadores);
+            	controller_filtrarConvocados(listaSelecciones, listaJugadores);
             	break;
             case 9:
+
+
             	break;
             case 10:
             	controller_guardarJugadoresModoTexto("jugadores.csv", listaJugadores);

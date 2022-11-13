@@ -8,6 +8,129 @@
 #include "Controller.h"
 #include "LinkedList.h"
 
+
+
+
+int controller_filtrarConvocados(LinkedList* pArrayListSelecciones,LinkedList* pArrayListJugador)
+{
+	int retorno = 0;
+	int auxIdSeleccion;
+	int cantConvocados;
+	Jugador* pAuxJugador = NULL;
+	int idSeleccionDelJugador;
+	LinkedList* listaFiltrada = ll_newLinkedList();
+
+
+	if(pArrayListSelecciones != NULL && pArrayListJugador != NULL)
+	{
+		controller_listarSelecciones(pArrayListSelecciones);
+		utn_getNumero(&auxIdSeleccion, "INGRESE EL ID DE LA SELECCION: ", "ERROR, REINTENTE: ", 1, ll_len(pArrayListSelecciones), 50);
+        Seleccion* seleccion = ll_get(pArrayListSelecciones, selec_searchForId(pArrayListSelecciones,auxIdSeleccion));
+
+        if(selec_getConvocados(seleccion, &cantConvocados) != -1  && cantConvocados > 0)
+        {
+    		for(int indice = 0; indice < ll_len(pArrayListJugador);indice++)
+    		{
+    			pAuxJugador = ll_get(pArrayListJugador, indice);
+    			if(jug_getSIdSeleccion(pAuxJugador, &idSeleccionDelJugador) != -1 && idSeleccionDelJugador == auxIdSeleccion)
+    			{
+    				ll_add(listaFiltrada, pAuxJugador);
+    			}
+    		}
+    		controller_guardarJugadoresModoBinario("FiltradosConfederacion.bin", listaFiltrada);
+    		printf("SE GUARDO EN BINARIO\n");
+    		controller_listarJugadores(listaFiltrada);
+        }
+        else
+        {
+        	printf("\nNOOOOOOOOO NO HAY CONVOCADOS\n");
+        	retorno = -1;
+
+        }
+	}
+
+	return retorno;
+}
+
+
+int controller_listarConvocados(LinkedList* pArrayListSelecciones, LinkedList* pArrayListJugador)
+{
+	int todoOk = 0;
+
+	Jugador *pAuxJugador;
+	int sizeOf;
+
+	if(pArrayListJugador == NULL)
+	{
+		printf("\nNO PLAYERS REGISTERED!");
+	}
+	else
+	{
+		printf("\n\n");
+		printf("|--------------------------------------------------------------------------------------------------------------------------------------|\n");
+		printf("|						       PLAYERS LIST                                                                                        ");
+		printf("|--------------------------------------------------------------------------------------------------------------------------------------|\n");
+		printf("|  ID |	    NOMBRE             |	EDAD       |      POSICION         |       NACIONALIDAD    |    ID SELECCION   |\n");
+		printf("|-----|------------------------|-------------------|-----------------------|-----------------------|-------------------|\n");
+		todoOk=1;
+
+		sizeOf = ll_len(pArrayListJugador);
+
+		for(int i = 0;i< sizeOf;i++)
+		{
+			pAuxJugador = (Jugador*) ll_get(pArrayListJugador, i);
+			if(pAuxJugador != NULL && pAuxJugador->idSeleccion != 0)
+			{
+				jug_ShowOnlyOne(pAuxJugador);
+			}
+		}
+		system("Pause");
+	}
+
+	return todoOk;
+}
+
+
+
+int controller_removerConvocados(LinkedList* pArrayListSelecciones, LinkedList* pArrayListJugador)
+{
+	int retorno = -2;
+	int auxIdJugador;
+	int cantConvocados;
+	int idSeleccion;
+
+	if(pArrayListSelecciones != NULL && pArrayListJugador != NULL && ll_len(pArrayListSelecciones) > 0 && ll_len(pArrayListSelecciones) > 0)
+	{
+		controller_listarConvocados(pArrayListSelecciones, pArrayListJugador);
+		utn_getNumero(&auxIdJugador, "INGRESE EL ID DEL JUGADADOR A DESCONVOCAR: ", "ERROR, REINTENTE: ", 1, ll_len(pArrayListJugador), 50);
+		Jugador* jugador = ll_get(pArrayListJugador, jug_searchForId(pArrayListJugador,auxIdJugador));
+
+		if(jug_getSIdSeleccion(jugador, &idSeleccion) != -1 && idSeleccion != 0)
+		{
+	        Seleccion* seleccion = ll_get(pArrayListSelecciones, selec_searchForId(pArrayListSelecciones,idSeleccion));
+
+	        if(selec_getConvocados(seleccion, &cantConvocados) != -1  && cantConvocados > 0)
+	        {
+	        	  selec_setConvocados(seleccion, cantConvocados - 1);
+	        	  jug_setIdSeleccion(jugador,0);
+	        	  printf("EL JUGADOR FUE ELIMINADO\n");
+	        	  retorno = 1;
+	        }
+	        else
+	        {
+	            printf("\nNOOOOOOOOOOOOOO LA SELESION NO TIENE CONVOCADOOO GIOOOO\n");
+	            retorno = 0;
+	        }
+		}
+		else
+		{
+	        printf("NO PÁ\n");
+	        retorno = -1;
+		}
+	}
+	return retorno;
+}
+
 int controller_convocarJugadores(LinkedList* pArrayListSelecciones, LinkedList* pArrayListJugador)
 {
 	int retorno = -2;
@@ -207,7 +330,29 @@ int controller_cargarJugadoresDesdeTexto(char* path , LinkedList* pArrayListJuga
  */
 int controller_cargarJugadoresDesdeBinario(char* path , LinkedList* pArrayListJugador)
 {
-	return 1;
+	int todoOk=0;
+
+	FILE* pFile;
+	Jugador *pAuxPassenger;
+	int sizeOfList;
+
+	if(path!=NULL && pArrayListJugador!=NULL)
+	{
+		pFile = fopen(path,"wb");//OPEN FILE AS BINARY
+		sizeOfList = ll_len(pArrayListJugador);
+		for(int i=0;i<sizeOfList;i++)
+		{
+			pAuxPassenger = (Jugador*) ll_get(pArrayListJugador, i);//CAST IF ERROR
+			if(pAuxPassenger!=NULL)
+			{
+				fwrite(pAuxPassenger,sizeof(Jugador),1,pFile);//WRITE ON THE FILE
+			}
+		}
+		fclose(pFile);//CLOSE FILE
+		ll_clear(pArrayListJugador);//CLEAR LIST
+		todoOk=1;
+	}
+    return todoOk;
 }
 
 /** \brief Alta de jugadores
@@ -602,7 +747,6 @@ int controller_guardarJugadoresModoTexto(char* path , LinkedList* pArrayListJuga
 	}
 	fclose(pArchivo);
 	return retorno;
-
 }
 
 /** \brief Guarda los datos de los jugadores en el archivo binario.
@@ -614,7 +758,20 @@ int controller_guardarJugadoresModoTexto(char* path , LinkedList* pArrayListJuga
  */
 int controller_guardarJugadoresModoBinario(char* path , LinkedList* pArrayListJugador)
 {
-    return 1;
+    int retorno = 0;
+    FILE* pArchivo;
+
+    pArchivo = fopen(path,"wb");
+
+    if(pArchivo != NULL && stringIsPath(path) && pArrayListJugador != NULL)
+    {
+    	printf("\nREALIZANDO ESCRITURA...\n");
+    	retorno = parser_saveAsBinary(pArchivo, pArrayListJugador);
+
+    }
+    fclose(pArchivo);
+
+    return retorno;
 }
 
 
