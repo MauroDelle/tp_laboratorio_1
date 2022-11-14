@@ -59,7 +59,7 @@ int main()
 				limpioPantalla();
 
 				pFunction("\nYOU NEED TO LOAD THE FILE FIRST!",
-						"\nTHERE WAS AN ERROR WHILE TRYING TO ADD THE PASSENGER! ",
+						"\nTHERE WAS AN ERROR WHILE TRYING TO ADD THE PLAYER! ",
 						"\nYOU HAVE EXITED THE ADD!",
 						&fileState, STATE_FILE_CLOSED, listaJugadores, controller_agregarJugador);
 
@@ -67,14 +67,14 @@ int main()
             	break;
             case 3:
 				pFunction("\nYOU NEED TO LOAD THE FILE FIRST!",
-						"\nTHERE WAS AN ERROR WHILE TRYING TO ADD THE PASSENGER! ",
+						"\nTHERE WAS AN ERROR WHILE TRYING TO ADD THE PLAYER! ",
 						"\nYOU HAVE EXITED THE ADD!",
 						&fileState, STATE_FILE_CLOSED, listaJugadores, controller_editarJugador);
 
             	break;
             case 4:
 				pFunction("\nYOU NEED TO LOAD THE FILE FIRST!",
-						"\nTHERE WAS AN ERROR WHILE TRYING TO ADD THE PASSENGER! ",
+						"\nTHERE WAS AN ERROR WHILE TRYING TO ADD THE PLAYER! ",
 						"\nYOU HAVE EXITED THE ADD!",
 						&fileState, STATE_FILE_CLOSED, listaJugadores, controller_removerJugador);
             	break;
@@ -84,14 +84,14 @@ int main()
 					case 1:
 						limpioPantalla();
 						pFunction("\nYOU NEED TO LOAD THE FILE FIRST!",
-								"\nTHERE WAS AN ERROR TRYING TO LIST THE PASSENGERS, TRY AGAIN! ",
+								"\nTHERE WAS AN ERROR TRYING TO LIST THE PLAYER, TRY AGAIN! ",
 								"\nTHE LIST OF PASSENGERS HAS BEEN SHOWED SUCCESFULLY!",
 								&fileState, STATE_FILE_CLOSED, listaJugadores, controller_listarJugadores);
 						system("Pause");
 						break;
 					case 2:
 						pFunction("\nYOU NEED TO LOAD THE FILE FIRST!",
-								"\nTHERE WAS AN ERROR TRYING TO LIST THE PASSENGERS, TRY AGAIN! ",
+								"\nTHERE WAS AN ERROR TRYING TO LIST THE PLAYER, TRY AGAIN! ",
 								"\nTHE LIST OF PASSENGERS HAS BEEN SHOWED SUCCESFULLY!",
 								&fileState, STATE_FILE_CLOSED, listaSelecciones, controller_listarSelecciones);
 						system("Pause");
