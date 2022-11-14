@@ -712,3 +712,35 @@ int getUserMenuOptionInt(int* confirUser,char message[],char errorMessage[],int 
 	}
 	return todoOk;
 }
+
+
+int stringIsAlphabetic(char string[]){
+	int retorno=1;
+	int i;
+	if(string!=NULL){
+		for(i=0;i<strlen(string);i++){
+			if((isalpha(string[i])==0&&string[i]!=' '&&string[i]!='\n')||(i==0&&string[i]=='\n')){
+				retorno=0;
+				break;
+			}
+		}
+	}
+	return retorno;
+}
+
+int getAlphabeticText(char mensaje[], char destino[], int len) {
+	int retorno=-1;
+	if(mensaje!=NULL && destino!=NULL && len>0) {
+		printf("%s \n", mensaje);
+		fflush(stdin);
+		fgets(destino,len,stdin);
+		if(stringIsAlphabetic(destino)){
+			destino[strlen(destino)-1]='\0';
+			retorno=0;
+		} else {
+			printf("- INGRESE SOLO LETRAS.\n");
+		}
+	}
+	return retorno;
+}
+

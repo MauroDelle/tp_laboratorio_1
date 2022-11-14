@@ -16,12 +16,14 @@ int main()
 {
 	setbuf(stdout,NULL);
 	int opcion;
+    int opcion2;
     LinkedList* listaJugadores = ll_newLinkedList(); //init
     LinkedList* listaSelecciones = ll_newLinkedList();
     LinkedList* listaFiltrada = ll_newLinkedList();
     char confirmation = 'n';
     int fileState = 0;
     int banderaExit = 0;
+    int banderaConvocados = 0;
 
     	//importante LEER README***
 
@@ -98,15 +100,33 @@ int main()
 						system("Pause");
 						break;
 					case 3:
-						controller_listarConvocados(listaSelecciones, listaJugadores);
+						if(banderaConvocados == 0)
+						{
+							printf("Debe de convocar a un jugador primero!\n");
+
+						}
+						else
+						{
+							controller_listarConvocados(listaSelecciones, listaJugadores);
+
+						}
 						break;
 					case 4:
-
 						break;
 					}
             	break;
             case 6:
-            	controller_convocarJugadores(listaSelecciones, listaJugadores);
+          	   utn_getNumero(&opcion2,"MENU:\n- 1. CONVOCAR JUGADORES.\n- 2.REVOCAR CONVOCATORIA.\n INGRESE:","ERROR, INGRESE UNA OPCION VALIDA(1-2):\n",1,2,50);
+
+          	   if(opcion2 == 1)
+          	   {
+               	controller_convocarJugadores(listaSelecciones, listaJugadores);
+               	banderaConvocados = 1;
+          	   }
+          	   else
+          	   {
+          		 controller_removerConvocados(listaSelecciones, listaJugadores);
+          	   }
             	break;
             case 7:
          	   utn_getNumero(&opcion,"ORDEN:\n- 1. ORDENAR JUGADORES.\n- 2. SELECCION.\n INGRESE ORDEN:","ERROR, INGRESE UNA OPCION VALIDA(1-2):\n",1,2,50);

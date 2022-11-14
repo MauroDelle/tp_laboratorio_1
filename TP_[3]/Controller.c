@@ -383,13 +383,13 @@ int controller_agregarJugador(LinkedList* pArrayListJugador)
 		printf("\n                           JUGADOR ADD                                  |\n");
 		printf("__________________________________________________________________________|");
 		obtainID(&auxId);
-		utn_getNombre(nombreCompleto,98, "\nINGRESE EL NOMBRE DEL JUGADOR: ", "\n[ERROR ONLY LETTERS, A MAX OF 48 CHARACTERS & NO SPACES.] ", 50);
+		getAlphabeticText("\nINGRESE EL NOMBRE COMPLETO: ", nombreCompleto, 98);
+		//utn_getNombre(nombreCompleto,98, "\nINGRESE EL NOMBRE DEL JUGADOR: ", "\n[ERROR ONLY LETTERS, A MAX OF 48 CHARACTERS & NO SPACES.] ", 50);
 		convertFirstLetterStringUpper(nombreCompleto);
 
 		utn_getNumero(&auxEdad, "\nINGRESE LA EDAD DEL JUGADOR: ", "\n[ERROR ONLY LETTERS, A MAX OF 48 CHARACTERS & NO SPACES.]. ", 20, 44, 50);
 		utn_getNombre(auxPosicion, 28, "\nINGRESE LA POSICION: ", "\n[ERROR ONLY LETTERS, A MAX OF 28 CHARACTERS & NO SPACES.] ", 50);
 		utn_getNombre(auxNacionalidad, 28, "\nINGRESE LA NACIONALIDAD: ", "\n[ERROR ONLY LETTERS, A MAX OF 28 CHARACTERS & NO SPACES.] ", 50);
-
 
 		getUserConfirmation(&confirmation, "\nDESEA AGREGAR AL JUGADOR?(S/N): ", "\nERROR, REINTENTE: ");
 
@@ -477,7 +477,8 @@ int controller_editarJugador(LinkedList* pArrayListJugador)
 				switch(controller_selectMenuOption())
 				{
 					case 1:
-						utn_getNombre(auxNombre, 98, "\nENTER THE PLAYER'S NEW NAME: ", "\n[ERROR ONLY LETTERS, A MAX OF 98 CHARACTERS & NO SPACES.]", 50);
+						getAlphabeticText("\nINGRESE EL NUEVO NOMBRE: ", auxNombre, 98);
+						//utn_getNombre(auxNombre, 98, "\nENTER THE PLAYER'S NEW NAME: ", "\n[ERROR ONLY LETTERS, A MAX OF 98 CHARACTERS & NO SPACES.]", 50);
 						getUserConfirmation(&confirmation, "\nDO YOU REALLY WANT TO CHANGE THE PLAYER'S NAME (S/N)?: ", "\nINVALID VALUE, PLEASE TRY AGAIN (S/N): ");
 
 						if(confirmation == 's')
