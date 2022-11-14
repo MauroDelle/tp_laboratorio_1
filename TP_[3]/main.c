@@ -18,6 +18,7 @@ int main()
 	int opcion;
     LinkedList* listaJugadores = ll_newLinkedList(); //init
     LinkedList* listaSelecciones = ll_newLinkedList();
+    LinkedList* listaFiltrada = ll_newLinkedList();
     char confirmation = 'n';
     int fileState = 0;
     int banderaExit = 0;
@@ -121,10 +122,11 @@ int main()
          	   	  }
             	break;
             case 8:
-            	//controller_removerConvocados(listaSelecciones, listaJugadores);
-            	controller_filtrarConvocados(listaSelecciones, listaJugadores);
+            	controller_filtrarConvocados(listaSelecciones, listaJugadores, listaFiltrada);
             	break;
             case 9:
+            	controller_guardarJugadoresModoBinario("FiltradosConfederacion.bin", listaFiltrada);
+            	controller_listarJugadores(listaFiltrada);
             	break;
             case 10:
             	controller_guardarJugadoresModoTexto("jugadores.csv", listaJugadores);

@@ -11,14 +11,14 @@
 
 
 
-int controller_filtrarConvocados(LinkedList* pArrayListSelecciones,LinkedList* pArrayListJugador)
+int controller_filtrarConvocados(LinkedList* pArrayListSelecciones,LinkedList* pArrayListJugador,LinkedList* pArrayJugadoresFiltrados)
 {
 	int retorno = 0;
 	int auxIdSeleccion;
 	int cantConvocados;
 	Jugador* pAuxJugador = NULL;
 	int idSeleccionDelJugador;
-	LinkedList* listaFiltrada = ll_newLinkedList();
+
 
 
 	if(pArrayListSelecciones != NULL && pArrayListJugador != NULL)
@@ -34,13 +34,12 @@ int controller_filtrarConvocados(LinkedList* pArrayListSelecciones,LinkedList* p
     			pAuxJugador = ll_get(pArrayListJugador, indice);
     			if(jug_getSIdSeleccion(pAuxJugador, &idSeleccionDelJugador) != -1 && idSeleccionDelJugador == auxIdSeleccion)
     			{
-    				ll_add(listaFiltrada, pAuxJugador);
+    				ll_add(pArrayJugadoresFiltrados, pAuxJugador);
     			}
     		}
-    		controller_guardarJugadoresModoBinario("FiltradosConfederacion.bin", listaFiltrada);
+
     		printf("SE GUARDO EN BINARIO\n");
-    		controller_listarJugadores(listaFiltrada);
-    		printf("\n\n");
+
         }
         else
         {

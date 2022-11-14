@@ -107,7 +107,8 @@ int controller_removerConvocados(LinkedList* pArrayListSelecciones, LinkedList* 
 /// \param pArrayListSelecciones
 /// \param pArrayListJugador
 /// \return	int
-int controller_filtrarConvocados(LinkedList* pArrayListSelecciones,LinkedList* pArrayListJugador);
+int controller_filtrarConvocados(LinkedList* pArrayListSelecciones,LinkedList* pArrayListJugador,LinkedList* pArrayJugadoresFiltrados)
+;
 
 
 /// \brief carga las selecciones desde texto(.csv)
