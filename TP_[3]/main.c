@@ -20,6 +20,9 @@ int main()
     LinkedList* listaSelecciones = ll_newLinkedList();
     char confirmation = 'n';
     int fileState = 0;
+    int banderaExit = 0;
+
+    	//importante LEER README***
 
     do{
 
@@ -114,7 +117,7 @@ int main()
          	   	  }
          	   	  else
          	   	  {
-         	   		  controller_ordenarSelecciones(listaSelecciones);
+         	   		 controller_ordenarSelecciones(listaSelecciones);
          	   	  }
             	break;
             case 8:
@@ -122,15 +125,18 @@ int main()
             	controller_filtrarConvocados(listaSelecciones, listaJugadores);
             	break;
             case 9:
-
-
             	break;
             case 10:
             	controller_guardarJugadoresModoTexto("jugadores.csv", listaJugadores);
             	controller_guardarSeleccionesModoTexto("selecciones.csv",listaSelecciones);
+            	banderaExit = 1;
             	break;
             case 11:
             	limpioPantalla();
+            		if(banderaExit ==0)
+            		{
+            			printf("No guardó lo cambios!\n");
+            		}
 					getUserConfirmation(&confirmation, "\nDO YOU REALLY WANT TO CLOSE THE APP (S/N)?: ", "\nINVALID VALUE, TRY AGAIN (S/N)!: ");
 					if(confirmation=='s')
 					{

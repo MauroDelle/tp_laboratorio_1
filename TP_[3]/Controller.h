@@ -9,25 +9,17 @@ int controller_guardarJugadoresModoTexto(char* path , LinkedList* pArrayListJuga
 int controller_guardarJugadoresModoBinario(char* path , LinkedList* pArrayListJugador);
 int controller_convocarJugadores(LinkedList* pArrayListSelecciones, LinkedList* pArrayListSeleccion);
 int controller_listarConvocados(LinkedList* pArrayListSelecciones, LinkedList* pArrayListJugador);
-
 int controller_removerConvocados(LinkedList* pArrayListSelecciones, LinkedList* pArrayListJugador);
-
 int controller_filtrarConvocados(LinkedList* pArrayListSelecciones,LinkedList* pArrayListJugador);
-
 int controller_cargarSeleccionesDesdeTexto(char* path , LinkedList* pArrayListSeleccion);//DONE
 int controller_editarSeleccion(LinkedList* pArrayListSeleccion);
 int controller_listarSelecciones(LinkedList* pArrayListSeleccion);
 int controller_ordenarSelecciones(LinkedList* pArrayListSeleccion);
 int controller_guardarSeleccionesModoTexto(char* path , LinkedList* pArrayListSeleccion);
-
-
 int controller_listarJugadoresDeUnaSeleccion(LinkedList* pArrayListJugador, int idSeleccion);
-
 int controller_saveBinaryLastId(FILE* pFile,char* path, LinkedList* pArrayListJugador);
 int saveAsBinary_LastID(FILE* pFile, LinkedList* pArrayListJugador,int* maxID);
-
 int obtainID(int* id);
 int upgradeID(int id);
-
 int controller_selectMenuOption();
 int controller_selectMenuOption2();

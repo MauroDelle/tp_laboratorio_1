@@ -40,12 +40,12 @@ int controller_filtrarConvocados(LinkedList* pArrayListSelecciones,LinkedList* p
     		controller_guardarJugadoresModoBinario("FiltradosConfederacion.bin", listaFiltrada);
     		printf("SE GUARDO EN BINARIO\n");
     		controller_listarJugadores(listaFiltrada);
+    		printf("\n\n");
         }
         else
         {
-        	printf("\nNOOOOOOOOO NO HAY CONVOCADOS\n");
+        	printf("\nNO NO HAY CONVOCADOS\n");
         	retorno = -1;
-
         }
 	}
 
@@ -689,9 +689,9 @@ int controller_ordenarJugadores(LinkedList* pArrayListJugador)
 
    if(pArrayListJugador != NULL && !ll_isEmpty(pArrayListJugador))
    {
-	   utn_getNumero(&opcion, "CRITERIOS:\n- 1. JUGADORES POR NACIONALIDAD.\n- 2. SELECCIONES POR CONFEDERACION."
+	   utn_getNumero(&opcion, "CRITERIOS:\n- 1. JUGADORES POR NACIONALIDAD.\n-."
 			                    "\n-3.JUGADORES POR EDAD.\n -4.JUGADORES POR NOMBRE.\n INGRESE CRITERIO:",
-			                    "ERROR! INGRESE UNA OPCION VALIDA: (1-4)", 1, 4, 50);
+			                    "ERROR! INGRESE UNA OPCION VALIDA: (1-4)", 1, 3, 50);
 
 	   if(opcion == 1)
 	   {
@@ -699,13 +699,9 @@ int controller_ordenarJugadores(LinkedList* pArrayListJugador)
 	   }
 	   if(opcion == 2)
 	   {
-		  // pFuncion = controller_ordenarSelecciones;
-	   }
-	   if(opcion==3)
-	   {
 		   pFuncion = jug_sortByEdad;
 	   }
-	   if(opcion == 4)
+	   if(opcion==3)
 	   {
 		   pFuncion = jug_sortByName;
 	   }
@@ -721,7 +717,6 @@ int controller_ordenarJugadores(LinkedList* pArrayListJugador)
 			printf("- ORDENANDO PASAJEROS PORFAVOR ESPERE...\n");
 			retorno=ll_sort(pArrayListJugador, pFuncion, 0);
 		}
-
    }
 
    return retorno;

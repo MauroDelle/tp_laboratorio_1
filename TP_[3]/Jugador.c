@@ -8,7 +8,7 @@
 #include "utn.h"
 
 //							STATIC LIBRARIES
-static int esNombre(char* cadena,int longitud);
+//static int esNombre(char* cadena,int longitud);
 
 void jug_delete(Jugador* this)
 {
@@ -91,6 +91,7 @@ Jugador* jug_newParametros(char* idStr,char* nombreCompletoStr,char* edadStr, ch
 
 
 //STATIC LIBRARYS
+/*
 static int esNombre(char* cadena,int longitud)
 {
 	int i=0;
@@ -110,7 +111,7 @@ static int esNombre(char* cadena,int longitud)
 	return retorno;
 }
 
-
+*/
 
 
 
