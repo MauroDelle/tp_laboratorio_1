@@ -95,19 +95,19 @@ int main(void){
 				switch (opcionDos) {
 				case 1:
 					utn_getInt(&costoHospedaje, "\nIngrese costo de hospedaje:",
-							"Costo ingresado no es valido.\n", 999999999, 1,
+							"Costo ingresado no es valido.\n", 300000000, 1,
 							99);
 					flagUno = 1;
 					break;
 				case 2:
 					utn_getInt(&costoComida, "\nIngrese costo de comida:",
-							"Error! REINTENTE: \n", 999999999, 1, 99);
+							"Error! REINTENTE: \n", 300000000, 1, 99);
 					flagUno = 1;
 					break;
 				case 3:
 					utn_getInt(&costoTransporte,
 							"\nIngrese costo de Transporte:",
-							"Error! REINTENTE: \n", 999999999, 1, 99);
+							"Error! REINTENTE: \n", 300000000, 1, 99);
 					flagUno = 1;
 					break;
 				}
@@ -119,23 +119,23 @@ int main(void){
 				if (totalJugadores < 22) {
 					printf("Carga de jugadores\n");
 					printf(
-							"\n1. Cargar Arquero:  | Arqueros actuales ingresados: %d (Maximo 2)\n",
+							"\n1. Cargar Arquero:   Arqueros actuales ingresados: %d \n",
 							arqueros);
 					printf(
-							"2. Cargar Defensor:  | Defensores actuales ingresados: %d (Maximo 8)\n",
+							"2. Cargar Defensor:   Defensores actuales ingresados: %d \n",
 							defensores);
 					printf(
-							"3. Cargar Mediocampista:  | Mediocampistas actuales ingresados: %d (Maximo 8)\n",
+							"3. Cargar Mediocampista:   Mediocampistas actuales ingresados: %d \n",
 							mediocampistas);
 					printf(
-							"4. Cargar Delantero:  | Delanteros actuales ingresados: %d (Maximo 4)\n",
+							"4. Cargar Delantero:   Delanteros actuales ingresados: %d \n",
 							delanteros);
 					printf("5. Volver al menu principal.\n");
 
 					utn_getInt(&opcionTres, "\nINGRESE UNA OPCION:",
 							"ERROR! REINTENTE: \n", 5, 1, 99);
 				} else {
-					printf("Maximo de jugadores (22) fue alcanzado.\n");
+					printf("Ya se alcanzo el límite de jugadores.\n");
 					break;
 				}
 
@@ -145,16 +145,14 @@ int main(void){
 						printf("Ingrese numero de la camiseta del arquero: ");
 						scanf("%d", &numeroDeCamiseta);
 						do {
-							printf("\nConfederacion a la que pertenece:\n");
-							printf("1. 'AFC' - Confederacion de Asia.\n");
-							printf("2.'CAF' - Confederacion de Africa.\n");
 							printf(
-									"3.'CONCACAF' - Confederacion de Zona Norte.\n");
-							printf(
-									"4.'CONMEBOL' - Confederacion de Sudamerica.\n");
-							printf("5.'UEFA' - Confederacion de Europa.\n");
-							printf("6.'OFC' - Confederacion de Oceania.\n");
-
+									"\nConfederacion a la que pertenece:\n"
+											"1. 'AFC' - Confederacion de Asia.\n"
+											"2.'CAF' - Confederacion de Africa.\n"
+											"3.'CONCACAF' - Confederacion de Zona Norte.\n"
+											"4.'CONMEBOL' - Confederacion de Sudamerica.\n"
+											"5.'UEFA' - Confederacion de Europa.\n"
+											"6.'OFC' - Confederacion de Oceania.\n");
 							utn_getInt(&opcionConfederacion,
 									"\nINGRESE UNA OPCION:",
 									"ERROR! REINGRESE: \n", 6, 1, 99);
@@ -186,7 +184,7 @@ int main(void){
 						} while (opcionConfederacion == 0);
 					} else {
 						printf(
-								"Cantidad maxima de arqueros permitida (2) fue alcanzado.\n");
+								"Cantidad maxima de arqueros alcanzado\n");
 					}
 					break;
 				case 2:
@@ -194,15 +192,14 @@ int main(void){
 						printf("Ingrese numero de la camiseta del defensor: ");
 						scanf("%d", &numeroDeCamiseta);
 						do {
-							printf("\nConfederacion a la que pertenece:\n");
-							printf("1. 'AFC' - Confederacion de Asia.\n");
-							printf("2.'CAF' - Confederacion de Africa.\n");
 							printf(
-									"3.'CONCACAF' - Confederacion de Zona Norte.\n");
-							printf(
-									"4.'CONMEBOL' - Confederacion de Sudamerica.\n");
-							printf("5.'UEFA' - Confederacion de Europa.\n");
-							printf("6.'OFC' - Confederacion de Oceania.\n");
+									"\nConfederacion a la que pertenece:\n"
+											"1. 'AFC' - Confederacion de Asia.\n"
+											"2.'CAF' - Confederacion de Africa.\n"
+											"3.'CONCACAF' - Confederacion de Zona Norte.\n"
+											"4.'CONMEBOL' - Confederacion de Sudamerica.\n"
+											"5.'UEFA' - Confederacion de Europa.\n"
+											"6.'OFC' - Confederacion de Oceania.\n");
 
 							utn_getInt(&opcionConfederacion,
 									"\nSeleccione una opcion:",
@@ -245,15 +242,14 @@ int main(void){
 								"Ingrese numero de la camiseta del mediocampista: ");
 						scanf("%d", &numeroDeCamiseta);
 						do {
-							printf("\nConfederacion a la que pertenece:\n");
-							printf("1. 'AFC' - Confederacion de Asia.\n");
-							printf("2.'CAF' - Confederacion de Africa.\n");
 							printf(
-									"3.'CONCACAF' - Confederacion de Zona Norte.\n");
-							printf(
-									"4.'CONMEBOL' - Confederacion de Sudamerica.\n");
-							printf("5.'UEFA' - Confederacion de Europa.\n");
-							printf("6.'OFC' - Confederacion de Oceania.\n");
+									"\nConfederacion a la que pertenece:\n"
+											"1. 'AFC' - Confederacion de Asia.\n"
+											"2.'CAF' - Confederacion de Africa.\n"
+											"3.'CONCACAF' - Confederacion de Zona Norte.\n"
+											"4.'CONMEBOL' - Confederacion de Sudamerica.\n"
+											"5.'UEFA' - Confederacion de Europa.\n"
+											"6.'OFC' - Confederacion de Oceania.\n");
 
 							utn_getInt(&opcionConfederacion,
 									"\nINGRESE UNA OPCION:",
@@ -287,7 +283,7 @@ int main(void){
 						} while (opcionConfederacion == 0);
 					} else {
 						printf(
-								"Cantidad maxima de mediocampistas permitida (8) fue alcanzado.\n");
+								"Maximo de mediocampistas alcanzado\n");
 					}
 					break;
 				case 4:
@@ -295,15 +291,14 @@ int main(void){
 						printf("Ingrese numero de la camiseta del delantero: ");
 						scanf("%d", &numeroDeCamiseta);
 						do {
-							printf("\nConfederacion a la que pertenece:\n");
-							printf("1. 'AFC' - Confederacion de Asia.\n");
-							printf("2.'CAF' - Confederacion de Africa.\n");
 							printf(
-									"3.'CONCACAF' - Confederacion de Zona Norte.\n");
-							printf(
-									"4.'CONMEBOL' - Confederacion de Sudamerica.\n");
-							printf("5.'UEFA' - Confederacion de Europa.\n");
-							printf("6.'OFC' - Confederacion de Oceania.\n");
+									"\nConfederacion a la que pertenece:\n"
+											"1. 'AFC' - Confederacion de Asia.\n"
+											"2.'CAF' - Confederacion de Africa.\n"
+											"3.'CONCACAF' - Confederacion de Zona Norte.\n"
+											"4.'CONMEBOL' - Confederacion de Sudamerica.\n"
+											"5.'UEFA' - Confederacion de Europa.\n"
+											"6.'OFC' - Confederacion de Oceania.\n");
 
 							utn_getInt(&opcionConfederacion,
 									"\nINGRESE UNA OPCION:",
@@ -335,7 +330,7 @@ int main(void){
 						} while (opcionConfederacion == 0);
 					} else {
 						printf(
-								"Cantidad maxima de delanteros permitida (4) fue alcanzado.\n");
+								"Maximo de 4 delanteros\n");
 					}
 					break;
 				}
