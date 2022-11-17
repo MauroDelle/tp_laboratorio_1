@@ -11,11 +11,11 @@
 /// @brief  Solicita un numero de tipo int al usuario, luego de verificarlo devuelve el resultado.
 ///
 /// @param pNumeroIngresado Puntero al espacio de memoria donde se dejara el resultado de la funcion.
-/// @param mensaje Mensaje que se muestra.
-/// @param mensajeError Mensaje de error que se muestra.
-/// @param maximo Maximo numero permitido.
-/// @param minimo Numero minimo permitido.
-/// @param maximoDeReintentos Maximo de reintentos permitidos.
+/// @param mensaje
+/// @param mensajeError
+/// @param maximo
+/// @param minimo
+/// @param maximoDeReintentos
 /// @return Retorna 0 si se obtuvo correctamente el numero y -1 en caso de error.
 int utn_getInt(int * pNumeroIngresado,char * mensaje,char * mensajeError,int maximo, int minimo, int maximoDeReintentos);
 
@@ -33,8 +33,8 @@ int utn_getFloat(float * pNumeroIngresado,char * mensaje,char * mensajeError,flo
 /// @brief  Calcula y despues de verificar devuelve el promedio de jugadores por mercado.
 ///
 /// @param pPromedio Puntero al espacio de memoria donde se dejara el resultado de la funcion.
-/// @param totalJuagoresConfederacion Cantidad de jugadores por cada mercado.
-/// @param totalJugadoresIngresados Total de jugadores ingresados.
+/// @param totalJuagoresConfederacion la cantidad de jugadores por confederacion
+/// @param totalJugadoresIngresados el total de los jugadores ingresados
 /// @return Retorna 0 si se realizo correctamente la operacion y -1 en caso de error.
 int promedioConfederaciones(float * pPromedio, float totalJuagoresConfederacion, float totalJugadoresIngresados);
 

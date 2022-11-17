@@ -63,7 +63,7 @@ int main(void){
 
 	do {
 
-		printf("                 MENU PRINCIPAL    \n");
+		printf("                 BIENVENIDO!    \n");
 		printf("\n1. Ingreso de los costos de mantenimiento:\n");
 		printf(
 				" Costo de hospedaje -> $%d\n Costo de comida -> $%d\n Costo de transporte -> $%d",
