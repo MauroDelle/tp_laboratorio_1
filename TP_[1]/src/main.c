@@ -17,26 +17,35 @@ int main(void){
 
 	setbuf(stdout, NULL);
 
-	int costoHospedaje = 0;
-	int costoComida = 0;
-	int costoTransporte = 0;
-	float costoTotalMantenimiento = 0.0;
-	int opcionMenu;
-	int opcionMenuCostos;
-	int opcionMenuCargaJugadores;
-	int arquerosIngresados = 0;
-	int defensoresIngresados = 0;
-	int mediocampistasIngresados = 0;
-	int delanterosIngresados = 0;
-	int numeroDeCamiseta;
+	//Acumuladores
+	int acumuladorConfederacionOceania = 0;
 	int acumuladorConfederacionAsia = 0;
 	int acumuladorConfederacionAfrica = 0;
 	int acumuladorConfederacionNorte = 0;
 	int acumuladorConfederacionSudamerica = 0;
 	int acumuladorConfederacionEuropa = 0;
-	int acumuladorConfederacionOceania = 0;
-	int contadorJugadoresIngresados = 0;
+
+	//Costos
+	int costoComida = 0;
+	int costoHospedaje = 0;
+	int costoTransporte = 0;
+	float costoTotalMantenimiento = 0.0;
+	float costoMantenimientoFinal;
+
+	//Variable para menu
+	int opcionMenu;
+	int opcionMenuCostos;
+	int opcionMenuCargaJugadores;
 	int opcionConfederacion = 0;
+
+	int arquerosIngresados = 0;
+	int defensoresIngresados = 0;
+	int mediocampistasIngresados = 0;
+	int delanterosIngresados = 0;
+	int contadorJugadoresIngresados = 0;
+	int numeroDeCamiseta;
+
+	//Promedios
 	float promedioAsia = 0.0;
 	float promedioAfrica = 0.0;
 	float promedioNorte = 0.0;
@@ -44,11 +53,12 @@ int main(void){
 	float promedioUefa = 0.0;
 	float promedioOceania = 0.0;
 	float promedioAumentoUefa;
+
+	//Flags de ingreso
 	int flagUno = 0;
 	int flagDos = 0;
     int flagTres = 0;
     int flagCuatro = 0;
-	float costoMantenimientoFinal;
 
 	do {
 
@@ -61,7 +71,7 @@ int main(void){
 		printf("4. Informar todos los resultados\n");
 		printf("5. Salir\n");
 
-		utn_getInt(&opcionMenu, "\nSeleccione una opcion:","¡ERROR!- La opcion ingresada es incorrecta.\n", 5, 1, 99);
+		utn_getInt(&opcionMenu, "\nINGRESE UNA OPCION:","ERROR! REINTENTE: \n", 5, 1, 99);
 
 		switch (opcionMenu) {
 		case 1:
@@ -73,18 +83,18 @@ int main(void){
 				printf("3. Ingresar costo de transporte: \n");
 				printf("4. Volver al menu principal.\n");
 
-				utn_getInt(&opcionMenuCostos, "\nSeleccione una opcion:","¡ERROR!- La opcion ingresada es incorrecta.\n", 4, 1,99);
+				utn_getInt(&opcionMenuCostos, "\nINGRESE UNA OPCION:","ERROR! REINTENTE: \n", 4, 1,99);
 
 				switch (opcionMenuCostos) {
 				case 1:
-					utn_getInt(&costoHospedaje,"\nIngrese costo de hospedaje (mayor o igual a $1):","Costo ingresado no es valido.\n",999999999,1, 99);
+					utn_getInt(&costoHospedaje,"\nIngrese costo de hospedaje:","Costo ingresado no es valido.\n",999999999,1, 99);
 					flagUno = 1;
 					break;
-				case 2:utn_getInt(&costoComida,"\nIngrese costo de comida (mayor o igual a $1):","Costo ingresado no es valido.\n",999999999,1, 99);
+				case 2:utn_getInt(&costoComida,"\nIngrese costo de comida:","Error! REINTENTE: \n",999999999,1, 99);
 					flagUno = 1;
 					break;
 				case 3:
-					utn_getInt(&costoTransporte,"\nIngrese costo de Transporte (mayor o igual a $1):","Costo ingresado no es valido.\n",999999999,1, 99);
+					utn_getInt(&costoTransporte,"\nIngrese costo de Transporte:","Error! REINTENTE: \n",999999999,1, 99);
 					flagUno = 1;
 					break;
 				}
@@ -95,8 +105,7 @@ int main(void){
 				opcionConfederacion = 0;
 				if(contadorJugadoresIngresados < 22)
 				{
-				printf(
-						"                  MENU OPCION 2 - Carga de jugadores\n");
+				printf("Carga de jugadores\n");
 				printf(
 						"\n1. Cargar Arquero:  | Arqueros actuales ingresados: %d (Maximo 2)\n",arquerosIngresados);
 				printf("2. Cargar Defensor:  | Defensores actuales ingresados: %d (Maximo 8)\n",defensoresIngresados);
@@ -104,7 +113,7 @@ int main(void){
 				printf("4. Cargar Delantero:  | Delanteros actuales ingresados: %d (Maximo 4)\n",delanterosIngresados);
 				printf("5. Volver al menu principal.\n");
 
-				utn_getInt(&opcionMenuCargaJugadores,"\nSeleccione una opcion:","¡ERROR!- La opcion ingresada es incorrecta.\n", 5, 1,99);
+				utn_getInt(&opcionMenuCargaJugadores,"\nINGRESE UNA OPCION:","ERROR! REINTENTE: \n", 5, 1,99);
 				}
 				else
 				{
@@ -127,9 +136,9 @@ int main(void){
 							printf("5.'UEFA' - Confederacion de Europa.\n");
 							printf("6.'OFC' - Confederacion de Oceania.\n");
 
-							utn_getInt(&opcionConfederacion,"\nSeleccione una opcion:","¡ERROR!- Seleccione entre las opcion 1 a 6 porfavor.\n",6, 1, 99);
+							utn_getInt(&opcionConfederacion,"\nINGRESE UNA OPCION:","ERROR! REINGRESE: \n",6, 1, 99);
 
-							switch (opcionConfederacion) {
+							switch (opcionConfederacion){
 							case 1:
 								acumuladorConfederacionAsia += 1;
 								break;
@@ -149,7 +158,6 @@ int main(void){
 								acumuladorConfederacionOceania += 1;
 								break;
 							}
-
 							arquerosIngresados++;
 							contadorJugadoresIngresados++;
 							flagDos = 1;
@@ -172,7 +180,7 @@ int main(void){
 							printf("5.'UEFA' - Confederacion de Europa.\n");
 							printf("6.'OFC' - Confederacion de Oceania.\n");
 
-							utn_getInt(&opcionConfederacion,"\nSeleccione una opcion:","¡ERROR!- Seleccione entre las opcion 1 a 6 porfavor.\n",6, 1, 99);
+							utn_getInt(&opcionConfederacion,"\nSeleccione una opcion:","ERROR! REINGRESE: \n",6, 1, 99);
 
 							switch (opcionConfederacion) {
 							case 1:
@@ -218,7 +226,7 @@ int main(void){
 							printf("5.'UEFA' - Confederacion de Europa.\n");
 							printf("6.'OFC' - Confederacion de Oceania.\n");
 
-							utn_getInt(&opcionConfederacion,"\nSeleccione una opcion:","¡ERROR!- Seleccione entre las opcion 1 a 6 porfavor.\n",6, 1, 99);
+							utn_getInt(&opcionConfederacion,"\nINGRESE UNA OPCION:","ERROR! REINTENTE: \n",6, 1, 99);
 
 							switch (opcionConfederacion) {
 							case 1:
@@ -263,7 +271,7 @@ int main(void){
 							printf("5.'UEFA' - Confederacion de Europa.\n");
 							printf("6.'OFC' - Confederacion de Oceania.\n");
 
-							utn_getInt(&opcionConfederacion,"\nSeleccione una opcion:","¡ERROR!- Seleccione entre las opcion 1 a 6 porfavor.\n",6, 1, 99);
+							utn_getInt(&opcionConfederacion,"\nINGRESE UNA OPCION:","ERROR! REINTENTE: \n",6, 1, 99);
 
 							switch (opcionConfederacion) {
 							case 1:
