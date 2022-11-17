@@ -17,7 +17,7 @@
 	Quite el main de la funcion e hice hice directamente todo en el main como dijeron.
 	Saque las bibliotecas de Jugadores.c/.h y lo mismo con Confederaciones.
 	 
-	
+	Elimine toda la cantidad de menues que tenia e hice la toma de datos con utn_getNumero directamente tambien.
 
 
 */

@@ -9,16 +9,6 @@
 #include "utn.h"
 
 
-/// @brief  Solicita un numero de tipo int al usuario, luego de verificarlo devuelve el resultado.
-///
-/// @param pNumeroIngresado Puntero al espacio de memoria donde se dejara el resultado de la funcion.
-/// @param mensaje Mensaje que se muestra.
-/// @param mensajeError Mensaje de error que se muestra.
-/// @param maximo Maximo numero permitido.
-/// @param minimo Numero minimo permitido.
-/// @param maximoDeReintentos Maximo de reintentos permitidos.
-/// @return Retorna 0 si se obtuvo correctamente el numero y -1 en caso de error.
-
 
 int utn_getInt(int * pNumeroIngresado,char * mensaje,char * mensajeError,int maximo, int minimo, int maximoDeReintentos){
 
@@ -46,15 +36,6 @@ int utn_getInt(int * pNumeroIngresado,char * mensaje,char * mensajeError,int max
     return retorno;
 }
 
-/// @brief  Solicita un numero de tipo flotante al usuario, luego de verificarlo devuelve el resultado.
-///
-/// @param pNumeroIngresado Puntero al espacio de memoria donde se dejara el resultado de la funcion.
-/// @param mensaje Mensaje que se muestra.
-/// @param mensajeError Mensaje de error que se muestra.
-/// @param maximo Maximo numero permitido.
-/// @param minimo Numero minimo permitido.
-/// @param maximoDeReintentos Maximo de reintentos permitidos.
-/// @return Retorna 0 si se obtuvo correctamente el numero y -1 en caso de error.
 
 int utn_getFloat(float * pNumeroIngresado,char * mensaje,char * mensajeError,float maximo, float minimo, int maximoDeReintentos){
 
@@ -82,15 +63,6 @@ int utn_getFloat(float * pNumeroIngresado,char * mensaje,char * mensajeError,flo
     return retorno;
 }
 
-/// @brief  Solicita un dato de tipo char al usuario, luego de verificarlo devuelve el resultado.
-///
-/// @param pNumeroIngresado Puntero al espacio de memoria donde se dejara el resultado de la funcion.
-/// @param mensaje Mensaje que se muestra.
-/// @param mensajeError Mensaje de error que se muestra.
-/// @param maximo Maximo char permitido.
-/// @param minimo Char minimo permitido.
-/// @param maximoDeReintentos Maximo de reintentos permitidos.
-/// @return Retorna 0 si se obtuvo correctamente el char y -1 en caso de error.
 
 int utn_getChar(char * pNumeroIngresado,char * mensaje,char * mensajeError,char maximo, char minimo, int maximoDeReintentos)
 {
@@ -118,22 +90,16 @@ int utn_getChar(char * pNumeroIngresado,char * mensaje,char * mensajeError,char 
  return retorno;
 }
 
-/// @brief  Calcula y despues de verificar devuelve el promedio de jugadores por mercado.
-///
-/// @param pPromedio Puntero al espacio de memoria donde se dejara el resultado de la funcion.
-/// @param totalJuagoresConfederacion Cantidad de jugadores por cada mercado.
-/// @param totalJugadoresIngresados Total de jugadores ingresados.
-/// @return Retorna 0 si se realizo correctamente la operacion y -1 en caso de error.
 
-int utn_getPromedioPorMercado(float * pPromedio, float totalJuagoresConfederacion, float totalJugadoresIngresados){
 
+int promedioConfederaciones(float * pPromedio, float totalJuagoresConfederacion, float totalJugadoresIngresados){
 	float auxPromedio;
 	int retorno = -1;
 
 
         if(pPromedio != NULL)
         {
-		auxPromedio = totalJuagoresConfederacion * 100 / totalJugadoresIngresados;
+		auxPromedio = (totalJuagoresConfederacion) / totalJugadoresIngresados;
 		*pPromedio = auxPromedio;
 
 		retorno = 0;
@@ -147,23 +113,16 @@ int utn_getPromedioPorMercado(float * pPromedio, float totalJuagoresConfederacio
     return retorno;
 }
 
-/// @brief  Calcula y despues de verificar devuelve el total del costo de mantenimiento.
-///
-/// @param pCostoTotalMantenimiento Puntero al espacio de memoria donde se dejara el resultado de la funcion.
-/// @param costoNumeroUno Costo numero uno ingresado por el usuario.
-/// @param costoNumeroDos Costo numero dos ingresado por el usuario.
-/// @param costoNumeroTres Costo numero tres ingresado por el usuario.
-/// @return Retorna 0 si se realizo correctamente la operacion y -1 en caso de error.
 
-int utn_getCostoMantenimiento(float * pCostoTotalMantenimiento, int costoNumeroUno, int costoNumeroDos, int costoNumeroTres)
+int costoMantenimiento(float * ptotalMantenimiento, int costoNumeroUno, int costoNumeroDos, int costoNumeroTres)
 {
-	float auxCostoTotalMantenimiento;
+	float auxtotalMantenimiento;
 	int retorno = -1;
 
-        if(pCostoTotalMantenimiento != NULL)
+        if(ptotalMantenimiento != NULL)
         {
-		auxCostoTotalMantenimiento = (float) costoNumeroUno + costoNumeroDos + costoNumeroTres;
-		*pCostoTotalMantenimiento = auxCostoTotalMantenimiento;
+		auxtotalMantenimiento = (float) costoNumeroUno + costoNumeroDos + costoNumeroTres;
+		*ptotalMantenimiento = auxtotalMantenimiento;
 
 		retorno = 0;
         }else
