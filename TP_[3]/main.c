@@ -108,7 +108,6 @@ int main()
 						else
 						{
 							controller_listarConvocados(listaSelecciones, listaJugadores);
-
 						}
 						break;
 					case 4:

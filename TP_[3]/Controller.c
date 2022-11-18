@@ -689,8 +689,8 @@ int controller_ordenarJugadores(LinkedList* pArrayListJugador)
 
    if(pArrayListJugador != NULL && !ll_isEmpty(pArrayListJugador))
    {
-	   utn_getNumero(&opcion, "CRITERIOS:\n- 1. JUGADORES POR NACIONALIDAD.\n-."
-			                    "\n-3.JUGADORES POR EDAD.\n -4.JUGADORES POR NOMBRE.\n INGRESE CRITERIO:",
+	   utn_getNumero(&opcion, "CRITERIOS:\n- 1. JUGADORES POR NACIONALIDAD."
+			                    "\n-2.JUGADORES POR EDAD.\n -3.JUGADORES POR NOMBRE.\n INGRESE CRITERIO:",
 			                    "ERROR! INGRESE UNA OPCION VALIDA: (1-4)", 1, 3, 50);
 
 	   if(opcion == 1)
