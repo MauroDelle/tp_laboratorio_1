@@ -557,7 +557,7 @@ int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order)
 				pElement1 = ll_get(this, i);
 				pElement2 = ll_get(this, j);
 				// [1] Indica orden ascendente - [0] Indica orden descendente
-				if((pFunc(pElement1, pElement2) > 0 && order == 0) || (pFunc(pElement1, pElement2) > 0 && order == 1))
+				if((pFunc(pElement1, pElement2) < 0 && order == 0) || (pFunc(pElement1, pElement2) > 0 && order == 1))
 				{
 					ll_set(this, i, pElement2);
 					ll_set(this, j, pElement1);
