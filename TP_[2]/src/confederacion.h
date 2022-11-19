@@ -35,9 +35,6 @@ int menuModificarConfederacion();
 
 /// @fn int listarConfederaciones(eConfederacion[], int)
 /// @brief funcion que lista las confederaciones
-///
-/// @pre
-/// @post
 /// @param confederaciones array de confederaciones
 /// @param tam	tamanio del array de confederaciones
 /// @return retorna un entero para saber si se pudo ejecutar correctamente
@@ -46,59 +43,43 @@ int listarConfederaciones(eConfederacion confederaciones[], int tam);
 
 /// @fn int cargarDescripcionConfederaciones(eConfederacion[], int, int, char[])
 /// @brief carga el nombre de las confederaciones
-///
-/// @pre
-/// @post
 /// @param confederaciones array de confederaciones
 /// @param tam	tamanio del array de confederaciones
-/// @param id
-/// @param nombre
+/// @param id	recibe el id de la confederacion
+/// @param nombre	recibe el nombre de la confederacion
 /// @return retorna 0 si hay error
 int cargarDescripcionConfederaciones(eConfederacion confederaciones[], int tam, int id, char nombre[]);
 
 /// @fn int buscarConfederacion(eConfederacion[], int, int, int*)
 /// @brief	busca confederacion por id
-///
-/// @pre
-/// @post
 /// @param confederaciones array de confederaciones
 /// @param tam	tamanio del array de confederaciones
-/// @param id
-/// @param pIndice
+/// @param id	recibe el id de la confederacion para realizar la busqueda
 /// @return retorna 0 si hay error
 int buscarConfederacion(eConfederacion confederaciones[], int tam, int id, int* pIndice);
 
 /// @fn int validarConfederacion(eConfederacion[], int, int)
 /// @brief	valida si hay espacio disponible
-///
-/// @pre
-/// @post
 /// @param confederaciones array de confederaciones
 /// @param tam	tamanio del array de confederacionesm
-/// @param id
+/// @param id	recibe la id de la confederacion
 /// @return	retorna 0 si hay error
 int validarConfederacion(eConfederacion confederaciones[],int tam, int id);
 
 /// @fn int cargarNombreYRegion(eConfederacion[], int, int, char[], char[])
 /// @brief	carga el string de nombre y region
-///
-/// @pre
-/// @post
 /// @param confederaciones array de confederaciones
 /// @param tam	tamanio del array de confederaciones
-/// @param id
-/// @param nombre
-/// @param region
+/// @param id	recibe el id de las confederaciones
+/// @param nombre recibe el nombre de la confederacion
+/// @param region recibe la region de la confederacion
 /// @return retorna 0 si hay error
 int cargarNombreYRegion(eConfederacion confederaciones[], int tam, int id,char nombre[], char region[]);
 
 /// @fn int mostrarConfederacion(eConfederacion, int, eConfederacion[], int)
 /// @brief	mustra una confederacion
-///
-/// @pre
-/// @post
-/// @param e
-/// @param t
+/// @param e recibe la estructura confederacion
+/// @param tam paso el tamanio de confederacion
 /// @param confederaciones array de confederaciones
 /// @param tam	tamanio del array de confederaciones
 /// @return	retorna 0 si hay error

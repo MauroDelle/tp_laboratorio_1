@@ -71,22 +71,6 @@ int modificarConfederacion(eConfederacion vec[], int tam)
 	return todoOk;
 }
 
-int menuModificarConfederacion()
-{
-	int opcion;
-	printf("     *** Campos a modificar ***\n");
-	printf("1- NOMBRE\n"
-		   "2- REGION\n"
-		   "3- AÑO CREACION\n"
-		   "4- SALIR\n"
-		   "SELECCIONE UNA OPCION: ");
-	scanf("%d", &opcion);
-
-	return opcion;
-}
-
-
-
 
 int cargarDescripcionConfederaciones(eConfederacion confederaciones[], int tam, int id, char nombre[])
 {

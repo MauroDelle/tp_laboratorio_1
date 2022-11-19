@@ -6,6 +6,7 @@
  */
 
 #include "menu.h"
+#include "utn.h"
 
 
 
@@ -19,11 +20,8 @@ int menuPrincipal()
 		   "2- BAJA DE JUGADOR  <\n"
 		   "3- MODIFICACIÓN DE JUGADOR  <\n"
 		   "4- INFORMES  <\n"
-		   "5- SALIR  <\n\n"
-
-		   "INGRESE UNA OPCION:");
-	scanf("%d", &opcion);
-
+		   "5- SALIR  <\n\n");
+	utn_getNumero(&opcion, "\nINGRESE UNA OPCION: ","\nERROR! SELECCIONE UNA OPCION VÁLIDA",1,5, 50);
 
 	return opcion;
 }
@@ -40,12 +38,26 @@ int menuModificarJugador()
 		   "4- CONFEDERACIÓN\n"
 		   "5- SALARIO\n"
 		   "6- AÑOS de CONTRATO\n"
-		   "7- SALIR\n"
-		   "SELECCIONE UNA OPCION: ");
-	scanf("%d", &opcion);
+		   "7- SALIR\n");
+	utn_getNumero(&opcion, "\nINGRESE UNA OPCION: ","\nERROR! SELECCIONE UNA OPCION VÁLIDA",1,7, 50);
 
 	return opcion;
 }
+
+
+int menuModificarConfederacion()
+{
+	int opcion;
+	printf("     *** Campos a modificar ***\n");
+	printf("1- NOMBRE\n"
+		   "2- REGION\n"
+		   "3- AÑO CREACION\n"
+		   "4- SALIR\n");
+	utn_getNumero(&opcion, "\nINGRESE UNA OPCION: ","\nERROR! SELECCIONE UNA OPCION VÁLIDA",1,4, 50);
+
+	return opcion;
+}
+
 
 
 

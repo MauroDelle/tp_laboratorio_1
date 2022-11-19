@@ -27,7 +27,6 @@ int main(void){
 	char salir = 'n';
 	int opcionInforme;
 
-
 	eJugador jugadores[TAM];
 	eConfederacion confederaciones[TAMC];
 
@@ -35,7 +34,6 @@ int main(void){
 	hardcodearJugadores(jugadores, TAM, 10, &proximoId);
 	inicializarConfederacion(confederaciones, TAMC);
 	hardcodearConfederaciones(confederaciones, TAMC, 6, &proximoIdConfederaciones);
-	flagIngreso = 1;
 
 
 	do
