@@ -34,7 +34,6 @@ int main(void){
 	hardcodearJugadores(jugadores, TAM, 15, &proximoId);
 	inicializarConfederacion(confederaciones, TAMC);
 	hardcodearConfederaciones(confederaciones, TAMC, 6, &proximoIdConfederaciones);
-	flagIngreso = 1;
 
 	do
 	{

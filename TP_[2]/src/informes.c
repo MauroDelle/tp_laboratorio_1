@@ -460,8 +460,6 @@ int listarRegionMasJugadores(eJugador jugadores[], int tam, eConfederacion confe
 }
 
 
-
-
 int cantJugadoresMayorConfederacion(eJugador jugadores[], int tam, int* cant)
 {
 	int todoOk = -1;
