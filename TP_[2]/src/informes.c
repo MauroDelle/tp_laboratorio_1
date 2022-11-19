@@ -84,7 +84,6 @@ int confederacionMayorAniosContrato(eJugador vec[], int tam,eConfederacion confe
         		{
         			totalContrato[s] += vec[e].aniosContrato;
         		}
-
         	}
         }
         for(int s = 0; s< tamC;s++)

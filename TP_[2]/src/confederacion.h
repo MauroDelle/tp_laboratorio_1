@@ -87,21 +87,14 @@ int mostrarConfederacion(eConfederacion e, int tam,eConfederacion confederacione
 
 /// @fn int hardcodearConfederaciones(eConfederacion[], int, int, int*)
 /// @brief	datos de confederacion hardcodeados
-///
-/// @pre
-/// @post
 /// @param vec array de la estructura confederaciones
 /// @param tam tamanio del array de confederaciones
-/// @param cant
-/// @param pLegajo
+/// @param cant	le paso la cantidad de selecciones a hardcodear
 /// @return	retorna 0 si hay error
 int hardcodearConfederaciones(eConfederacion vec[], int tam, int cant,int* pLegajo);
 
 /// @fn int modificarConfederacion(eConfederacion[], int)
 /// @brief	funcion para modificar los campos de laestructura confederacion
-///
-/// @pre
-/// @post
 /// @param vec array de la estructura confederaciones
 /// @param tam tamanio del array de confederaciones
 /// @return	retorna 0 si hay error
@@ -110,20 +103,14 @@ int modificarConfederacion(eConfederacion vec[], int tam);
 
 /// @fn int altaConfederacion(eConfederacion[], int, int*)
 /// @brief	funcion para dar de alta una confederacion
-///
-/// @pre
-/// @post
 /// @param vec array de la estructura confederaciones
 /// @param tam tamanio del array de confederaciones
-/// @param pLegajo
+/// @param pLegajo Le paso la id por donde quiero que comience a contar
 /// @return	retorna 0 si hay error
 int altaConfederacion(eConfederacion vec[], int tam, int* pLegajo);
 
 /// @fn int inicializarConfederacion(eConfederacion[], int)
 /// @brief	inicializa el arrayy de confederacion
-///
-/// @pre
-/// @post
 /// @param vec array de la estructura confederaciones
 /// @param tam tamanio del array de confederaciones
 /// @return	retorna 0 si hay error
@@ -131,12 +118,9 @@ int inicializarConfederacion(eConfederacion vec[],int tam);
 
 /// @fn int buscarConfederacionLibre(eConfederacion[], int, int*)
 /// @brief	busca si hay espacio libre en el array de confederacion
-///
-/// @pre
-/// @post
 /// @param vec array de la estructura confederaciones
 /// @param tam tamanio del array de confederaciones
-/// @param pIndex
+/// @param pIndex busca si
 /// @return	retorna 0 si hay error
 int buscarConfederacionLibre(eConfederacion vec[], int tam, int* pIndex);
 /// @fn int bajaConfederacion(eConfederacion[], int)

@@ -21,7 +21,7 @@ int menuPrincipal()
 		   "3- MODIFICACIÓN DE JUGADOR  <\n"
 		   "4- INFORMES  <\n"
 		   "5- SALIR  <\n\n");
-	utn_getNumero(&opcion, "\nINGRESE UNA OPCION: ","\nERROR! SELECCIONE UNA OPCION VÁLIDA",1,5, 50);
+	 utn_getNumero(&opcion, "\nINGRESE UNA OPCION: ","\nERROR! SELECCIONE UNA OPCION VÁLIDA",1,5, 50);
 
 	return opcion;
 }
@@ -39,7 +39,7 @@ int menuModificarJugador()
 		   "5- SALARIO\n"
 		   "6- AÑOS de CONTRATO\n"
 		   "7- SALIR\n");
-	utn_getNumero(&opcion, "\nINGRESE UNA OPCION: ","\nERROR! SELECCIONE UNA OPCION VÁLIDA",1,7, 50);
+	 utn_getNumero(&opcion, "\nINGRESE UNA OPCION: ","\nERROR! SELECCIONE UNA OPCION VÁLIDA",1,7, 50);
 
 	return opcion;
 }
@@ -53,7 +53,7 @@ int menuModificarConfederacion()
 		   "2- REGION\n"
 		   "3- AÑO CREACION\n"
 		   "4- SALIR\n");
-	utn_getNumero(&opcion, "\nINGRESE UNA OPCION: ","\nERROR! SELECCIONE UNA OPCION VÁLIDA",1,4, 50);
+	 utn_getNumero(&opcion, "\nINGRESE UNA OPCION: ","\nERROR! SELECCIONE UNA OPCION VÁLIDA",1,4, 50);
 
 	return opcion;
 }
