@@ -111,7 +111,6 @@ int main(void){
 							confederacionMayorAniosContrato(jugadores, TAM, confederaciones, TAMC);
 							break;
 						case 5:
-
 							break;
 						case 6:
 							break;

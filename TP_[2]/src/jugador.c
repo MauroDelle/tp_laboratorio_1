@@ -13,6 +13,7 @@
 
 
 
+
 int hardcodearJugadores(eJugador vec[], int tam, int cant, int* pLegajo)
 {
 	int todoOk = 0;
@@ -210,7 +211,6 @@ int altaJugador(eJugador vec[],int tam, eConfederacion confederaciones[], int ta
 			}
 			else
 			{
-
 				getValidString("Ingrese el nombre del jugador: ", "\nError, solo letras", "nINGRESE EN UN RANGO VALIDO: ", auxCad, 1, 50);
 				strcpy(nuevoJugador.nombre, auxCad);
 
@@ -236,7 +236,6 @@ int altaJugador(eJugador vec[],int tam, eConfederacion confederaciones[], int ta
                 	scanf("%d", &nuevoJugador.idConfederacion);
 
                 }
-
                 nuevoJugador.isEmpty = 0;
                 nuevoJugador.id = *pLegajo;
                 *pLegajo = *pLegajo + 1;

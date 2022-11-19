@@ -7,6 +7,7 @@
 
 #include "informes.h"
 #include <ctype.h>
+#define OCUPADO 1
 
 int superanSueldoPromedio(eJugador list[], int tam, float promedio,eConfederacion confederaciones[], int tamC)
 {
@@ -331,9 +332,45 @@ int contador_porConfederacion(eJugador unJugador,eConfederacion listConfederacio
 
 
 
+int porcentajeJugadoresXConfederacion(eJugador jugadores[], int tam, eConfederacion confederaciones[], int tamC)
+{
+	int retorno = -1;
+
+
+	if(jugadores != NULL && confederaciones != NULL && tam >0 && tamC > 0)
+	{
 
 
 
+
+
+
+	}
+
+	return retorno;
+}
+
+
+int contarCantidadJugadores(eJugador jugadores[], int tam,int id,int* cantidad)
+{
+	int retorno = -1;
+	int contadorJugador = 0;
+
+	if(jugadores != NULL && tam > 0)
+	{
+		for(int i = 0;i< tam;i++)
+		{
+			if(jugadores[i].isEmpty == OCUPADO && jugadores[i].idConfederacion == id)
+			{
+				contadorJugador++;
+				*cantidad = contadorJugador;
+			}
+		}
+		*cantidad = contadorJugador;
+		retorno = 1;
+	}
+	return retorno;
+}
 
 
 
