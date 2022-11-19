@@ -14,11 +14,8 @@
 //informes
 /// @fn int listarConfederacionesYJugadores(eJugador[], int, eConfederacion[], int)
 /// @brief listado de confederaciones con sus jugadores
-///
-/// @pre
-/// @post
-/// @param vec
-/// @param tam
+/// @param vec array de la estructura jugadores
+/// @param tam tamanio del array de la estructura jugadores
 /// @param confederaciones
 /// @param tamC
 /// @return	retorna 0 si hubo un error
@@ -66,9 +63,6 @@ int contador_porConfederacion(eJugador unJugador,eConfederacion listConfederacio
 
 /// @fn int maximo_JugadoresPorConfederacion(eJugador[], int, eConfederacion[], int, int*)
 /// @brief	funcion para saber el maximo de ugadores que hay en cada confedercion
-///
-/// @pre
-/// @post
 /// @param jugadores
 /// @param tamJ
 /// @param confederaciones
@@ -81,9 +75,6 @@ int maximo_JugadoresPorConfederacion(eJugador jugadores[], int tamJ,eConfederaci
 
 /// @fn int calcularSalarios(eJugador[], int, eConfederacion[], int)
 /// @brief	funcion para saber elk total y promedio de todos los salarios y cuanto jugadores cobran mas del salario promedio
-///
-/// @pre
-/// @post
 /// @param list
 /// @param tam
 /// @param confederaciones
@@ -94,9 +85,6 @@ int calcularSalarios(eJugador list[], int tam,eConfederacion confederaciones[], 
 
 /// @fn int superanSueldoPromedio(eJugador[], int, float, eConfederacion[], int)
 /// @brief	funcion para saber cuantos jguadores cobran mas del salario promedio
-///
-/// @pre
-/// @post
 /// @param list
 /// @param tam
 /// @param promedio
