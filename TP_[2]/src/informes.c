@@ -510,14 +510,14 @@ int cantJugadoresMayorConfederacion(eJugador jugadores[], int tam, int* cant)
 }
 
 
-int mostrar_Por_Id(eJugador jugadores[], int tam,eConfederacion tipos[], int tamT , int id)
+int mostrar_Por_Id(eJugador jugadores[], int tam,eConfederacion confederaciones[], int tamT , int id)
 {
 	int todoOk=-1;
 		for(int i=0;i<tam;i++)
 		{
 			if(jugadores[i].isEmpty==OCUPADO&&jugadores[i].idConfederacion==id)
 			{
-				mostrarJugador(jugadores[i], tipos, tamT);
+				mostrarJugador(jugadores[i], confederaciones, tamT);
 			}
 		}
 	return todoOk;

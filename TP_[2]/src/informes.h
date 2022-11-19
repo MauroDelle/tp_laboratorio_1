@@ -115,19 +115,45 @@ int superanSueldoPromedio(eJugador list[], int tam, float promedio,eConfederacio
 int porcentajeJugadoresXConfederacion(eJugador jugadores[], int tam, eConfederacion confederaciones[], int tamC);
 
 /// @fn int contarCantidadJugadores(eJugador[], int, int, int*)
-/// @brief
-///
-/// @pre
-/// @post
-/// @param jugadores
-/// @param tam
-/// @param id
-/// @param cantidad
-/// @return
+/// @brief	cuanta la cantidad de jugadores ingresados
+/// @param jugadores le paso el array de la estructura jugadores
+/// @param tam	le paso el tamanio de la estructura jugadores
+/// @param id	le paso el id
+/// @param cantidad devuelve la cantidad
+/// @return		retorna -1 si rompe y si no 1 si funciona
 int contarCantidadJugadores(eJugador jugadores[], int tam,int id,int* cantidad);
+/// @fn int sacarPorcentaje(int, int, float*)
+/// @brief	realiza porcentajes
+/// @param cant1	paso el primer valor
+/// @param cantidad2	paso el segundo valor
+/// @param retorno	guarda el porcentaje
+/// @return	retorna -1 si rompe y si no 1 si funciona
 int sacarPorcentaje(int cant1,int cantidad2,float* retorno);
+/// @fn int cantJugadoresMayorConfederacion(eJugador[], int, int*)
+/// @brief	filtra la cantidad de jugadores en la mayor conf
+/// @param jugadores le paso el array de la estructura jugadores
+/// @param tam	le paso el tamanio de la estructura jugadores
+/// @param cant	recibe cual fe la cantidad
+/// @return-1 si rompe y si no 1 si funciona
 int cantJugadoresMayorConfederacion(eJugador jugadores[], int tam, int* cant);
+
+/// @fn int listarRegionMasJugadores(eJugador[], int, eConfederacion[], int)
+/// @brief	Lista la region que mas jugadores tuvo
+/// @param jugadores le paso el array de la estructura jugadores
+/// @param tam	le paso el tamanio de la estructura jugadores
+/// @param confederaciones	le paso el array de la estructura confederacion
+/// @param tamC	le paso el tamanio del array de la estructura confederacion
+/// @return	retorna -1 si rompe y si no 1 si funciona
 int listarRegionMasJugadores(eJugador jugadores[], int tam, eConfederacion confederaciones[], int tamC);
-int mostrar_Por_Id(eJugador jugadores[], int tam,eConfederacion tipos[], int tamT , int id);
+
+/// @fn int mostrar_Por_Id(eJugador[], int, eConfederacion[], int, int)
+/// @brief	muestra jugadores por ID
+/// @param jugadores le paso el array de la estructura jugadores
+/// @param tam	le paso el tamanio de la estructura jugadores
+/// @param confederaciones	le paso el array de la estructura confederacion
+/// @param tamC	le paso el tamanio del array de la estructura confederacion
+/// @param id	le paso el id a mostrar
+/// @return	retorna -1 si rompe y si no 1 si funciona
+int mostrar_Por_Id(eJugador jugadores[], int tam,eConfederacion confederaciones[], int tamT , int id);
 
 #endif /* INFORMES_H_ */

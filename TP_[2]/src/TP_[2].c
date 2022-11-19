@@ -38,7 +38,6 @@ int main(void){
 	do
 	{
 		opcion = menuPrincipal();
-
 		switch(opcion)
 		{
 			case 1:
@@ -139,7 +138,6 @@ int main(void){
 
 	return 0;
 }
-
 
 
 
