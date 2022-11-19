@@ -5,7 +5,7 @@
  *      Author: delle
  */
 #define TAMC 6
-#define TAM 20
+#define TAM 22
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

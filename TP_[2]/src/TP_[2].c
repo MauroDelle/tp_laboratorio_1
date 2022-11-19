@@ -31,10 +31,10 @@ int main(void){
 	eConfederacion confederaciones[TAMC];
 
 	inicializarJugador(jugadores, TAM);
-	hardcodearJugadores(jugadores, TAM, 10, &proximoId);
+	hardcodearJugadores(jugadores, TAM, 15, &proximoId);
 	inicializarConfederacion(confederaciones, TAMC);
 	hardcodearConfederaciones(confederaciones, TAMC, 6, &proximoIdConfederaciones);
-
+	flagIngreso = 1;
 
 	do
 	{
@@ -93,7 +93,7 @@ int main(void){
 						   "4. INFORMAR LA CONFEDERACION CON MAYOR CANTIDAD DE AÑOS DE CONTRATOS TOTAL\n"
 						   "5. INFORMAR PORCENTAJE DE JUGADORES POR CADA CONFEDERACIÓN\n"
 						   "6. INFORMAR CUAL ES LA REGIÓN CON MÁS JUGADORES Y EL LISTADO DE LOS MISMOS\n"
-					       "7. INFORME GENERAL\n\n");
+					       "7. LISTADO GENERAL\n\n");
 					utn_getNumero(&opcionInforme, "SELECCIONE EL INFORME QUE DESEA VER: ", "ERROR. ", 1, 7, 3);
 
 					switch(opcionInforme)
@@ -102,19 +102,27 @@ int main(void){
 							primerListado(jugadores, TAM, confederaciones, TAMC, 0);
 							break;
 						case 2:
+							limpioPantalla();
 							listarConfederacionesYJugadores(jugadores, TAM, confederaciones, TAMC);
 							break;
 						case 3:
+							limpioPantalla();
 							calcularSalarios(jugadores, TAM, confederaciones, TAMC);
 							break;
 						case 4:
+							limpioPantalla();
 							confederacionMayorAniosContrato(jugadores, TAM, confederaciones, TAMC);
 							break;
 						case 5:
+							limpioPantalla();
+							porcentajeJugadoresXConfederacion(jugadores, TAM, confederaciones, TAMC);
 							break;
 						case 6:
+							limpioPantalla();
+							listarRegionMasJugadores(jugadores, TAM, confederaciones, TAMC);
 							break;
 						case 7:
+							limpioPantalla();
 							listarJugador(jugadores, TAM, confederaciones, TAMC);
 							break;
 					}

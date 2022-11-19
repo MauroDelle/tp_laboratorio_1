@@ -105,4 +105,29 @@ int calcularSalarios(eJugador list[], int tam,eConfederacion confederaciones[], 
 /// @return	retorna 0 si hubo un error
 int superanSueldoPromedio(eJugador list[], int tam, float promedio,eConfederacion confederaciones[], int tamC);
 
+/// @fn int porcentajeJugadoresXConfederacion(eJugador[], int, eConfederacion[], int)
+/// @brief calcula el porcentaje de jugadores por cada una de las confederaciones
+/// @param jugadores	le paso el array de la estructura jugadores
+/// @param tam	le paso el tamanio de la estructura jugadores
+/// @param confederaciones	le paso el array de la estructura confederacion
+/// @param tamC	le paso el tamanio del array de la estructura confederacion
+/// @return	retorna -1 si rompe y si no 1 si funciona
+int porcentajeJugadoresXConfederacion(eJugador jugadores[], int tam, eConfederacion confederaciones[], int tamC);
+
+/// @fn int contarCantidadJugadores(eJugador[], int, int, int*)
+/// @brief
+///
+/// @pre
+/// @post
+/// @param jugadores
+/// @param tam
+/// @param id
+/// @param cantidad
+/// @return
+int contarCantidadJugadores(eJugador jugadores[], int tam,int id,int* cantidad);
+int sacarPorcentaje(int cant1,int cantidad2,float* retorno);
+int cantJugadoresMayorConfederacion(eJugador jugadores[], int tam, int* cant);
+int listarRegionMasJugadores(eJugador jugadores[], int tam, eConfederacion confederaciones[], int tamC);
+int mostrar_Por_Id(eJugador jugadores[], int tam,eConfederacion tipos[], int tamT , int id);
+
 #endif /* INFORMES_H_ */

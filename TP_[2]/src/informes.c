@@ -6,8 +6,9 @@
  */
 
 #include "informes.h"
+#include "utn.h"
 #include <ctype.h>
-#define OCUPADO 1
+#define OCUPADO 0
 
 int superanSueldoPromedio(eJugador list[], int tam, float promedio,eConfederacion confederaciones[], int tamC)
 {
@@ -122,8 +123,6 @@ int primerListado(eJugador jugadores[], int tamJ,eConfederacion confederaciones[
     char confederacionJugador2[50];
     eJugador aux;
 
-
-
     if(jugadores != NULL && tamJ > 0 && confederaciones != NULL && tamC > 0)
     {
     	if(order == 0)
@@ -180,7 +179,6 @@ int primerListado(eJugador jugadores[], int tamJ,eConfederacion confederaciones[
     						}
     				}
     			}
-
     		}
 
     	for(int t = 0; t < tamJ; t++)
@@ -330,8 +328,6 @@ int contador_porConfederacion(eJugador unJugador,eConfederacion listConfederacio
 }
 
 
-
-
 int porcentajeJugadoresXConfederacion(eJugador jugadores[], int tam, eConfederacion confederaciones[], int tamC)
 {
 	int retorno = -1;
@@ -339,12 +335,52 @@ int porcentajeJugadoresXConfederacion(eJugador jugadores[], int tam, eConfederac
 
 	if(jugadores != NULL && confederaciones != NULL && tam >0 && tamC > 0)
 	{
+		int auxConme;
+		int auxUefa;
+		int audOfc;
+		int auxAfc;
+		int auxConcacaf;
+		int auxCaf;
+		int total;
+		float porcentaje;
 
+		contarCantidadJugadores(jugadores, tam, 100, &auxConme);
+		contarCantidadJugadores(jugadores, tam, 101, &auxUefa);
+		contarCantidadJugadores(jugadores, tam, 102, &audOfc);
+		contarCantidadJugadores(jugadores, tam, 103, &auxAfc);
+		contarCantidadJugadores(jugadores, tam, 104, &auxConcacaf);
+		contarCantidadJugadores(jugadores, tam, 105, &auxCaf);
+		total = auxConme + auxUefa + audOfc + auxAfc + auxConcacaf + auxCaf;
+		limpioPantalla();
 
+		if(sacarPorcentaje(auxConme, total, &porcentaje) == 1)
+		{
+			printf("El porcentaje de jugadores en conmebol es : %.2f\n",porcentaje);
+		}
+		if(sacarPorcentaje(auxUefa, total, &porcentaje) == 1)
+		{
+			printf("El porcentaje de jugadores en uefa es : %.2f\n",porcentaje);
+		}
+		if(sacarPorcentaje(audOfc, total, &porcentaje) == 1)
+		{
+			printf("El porcentaje de jugadores en ofc es : %.2f\n",porcentaje);
+		}
+		if(sacarPorcentaje(auxAfc, total, &porcentaje) == 1)
+		{
+			printf("El porcentaje de jugadores en AFC es : %.2f\n",porcentaje);
+		}
+		if(sacarPorcentaje(auxConcacaf, total, &porcentaje) == 1)
+		{
+			printf("El porcentaje de jugadores en concacaf es : %.2f\n",porcentaje);
+		}
+		if(sacarPorcentaje(auxCaf, total, &porcentaje) == 1)
+		{
+			printf("El porcentaje de jugadores en caf es : %.2f\n",porcentaje);
+		}
 
+		limpioPantalla();
 
-
-
+		retorno = 1;
 	}
 
 	return retorno;
@@ -373,16 +409,119 @@ int contarCantidadJugadores(eJugador jugadores[], int tam,int id,int* cantidad)
 }
 
 
+int sacarPorcentaje(int cant1,int cantidad2,float* retorno)
+{
+	int todoOk = -1;
+	float resultado;
+
+	if(cantidad2 != 0)
+	{
+		resultado = (float)cant1 * 100 / cantidad2;
+		*retorno = resultado;
+		todoOk = 1;
+	}
+	else
+	{
+		todoOk = 0;
+	}
+
+	return todoOk;
+}
+
+int listarRegionMasJugadores(eJugador jugadores[], int tam, eConfederacion confederaciones[], int tamC)
+{
+	int todoOk=-1;
+	int contador=0;
+	int cantidadMayor;
+	cantJugadoresMayorConfederacion(jugadores, tam, &cantidadMayor);
+	if(jugadores!=NULL&&tam>0&&confederaciones!=NULL&&tamC>0)
+	{
+		for(int i=0;i<tamC;i++)
+		{
+			contador=0;
+			for(int j=0;j<tam;j++)
+			{
+				if(jugadores[j].isEmpty==OCUPADO&&confederaciones[i].id==jugadores[j].idConfederacion)
+				{
+					contador++;
+					if(contador>=cantidadMayor)
+					{
+						printf("\nLa REGION %s tiene mayor cantidad de jugadores : %d\n",confederaciones[i].nombre,cantidadMayor);
+						mostrar_Por_Id(jugadores, tam, confederaciones, tamC, confederaciones[i].id);
+
+					}
+				}
+			}
+		}
+		todoOk=1;
+	}
+
+	return todoOk;
+}
 
 
 
 
+int cantJugadoresMayorConfederacion(eJugador jugadores[], int tam, int* cant)
+{
+	int todoOk = -1;
+	if (jugadores != NULL && tam > 0) {
+		int auxRetConnme;
+		int auxRetUefa;
+		int auxRetOfc;
+		int auxRetAfc;
+		int auxRetConcaf;
+		int auxRetCaf;
+		contarCantidadJugadores(jugadores, tam, 100, &auxRetConnme);
+		contarCantidadJugadores(jugadores, tam, 101, &auxRetUefa);
+		contarCantidadJugadores(jugadores, tam, 102, &auxRetCaf);
+		contarCantidadJugadores(jugadores, tam, 103, &auxRetAfc);
+		contarCantidadJugadores(jugadores, tam, 104, &auxRetConcaf);
+		contarCantidadJugadores(jugadores, tam, 105, &auxRetOfc);
+		if (auxRetConnme >= auxRetUefa && auxRetConnme >= auxRetCaf
+				&& auxRetConnme >= auxRetAfc && auxRetConnme >= auxRetConcaf
+				&& auxRetConnme >= auxRetOfc) {
+			*cant = auxRetConnme;
+		} else {
+			if (auxRetUefa >= auxRetCaf && auxRetUefa >= auxRetAfc
+					&& auxRetUefa >= auxRetConcaf && auxRetUefa >= auxRetOfc) {
+				*cant = auxRetUefa;
+			} else {
+				if (auxRetCaf >= auxRetAfc && auxRetCaf >= auxRetConcaf
+						&& auxRetCaf >= auxRetOfc) {
+					*cant = auxRetCaf;
+				} else {
+					if (auxRetAfc >= auxRetConcaf && auxRetAfc >= auxRetOfc) {
+						*cant = auxRetAfc;
+					} else {
+						if (auxRetConcaf >= auxRetOfc) {
+							*cant = auxRetConcaf;
+						} else {
+							*cant = auxRetOfc;
+						}
+					}
+				}
+			}
+		}
+		todoOk = 1;
+	}
+
+	return todoOk;
+}
 
 
-
-
-
-
+int mostrar_Por_Id(eJugador jugadores[], int tam,eConfederacion tipos[], int tamT , int id)
+{
+	int todoOk=-1;
+		for(int i=0;i<tam;i++)
+		{
+			if(jugadores[i].isEmpty==OCUPADO&&jugadores[i].idConfederacion==id)
+			{
+				mostrarJugador(jugadores[i], tipos, tamT);
+			}
+		}
+	return todoOk;
+}
 
 
 

@@ -29,7 +29,12 @@ int hardcodearJugadores(eJugador vec[], int tam, int cant, int* pLegajo)
 			{0,"Ezequiel Taboada", "Defensor", 2,250000,100,4},
 			{0,"Martin Cauteruccio", "Delantero", 9,75000,100,2},
 			{0,"Toto Salvio", "Delantero", 11,90000,104,4},
-			{0,"Bernardo Silva", "Mediocampista", 8,150000,101,2}
+			{0,"Bernardo Silva", "Mediocampista", 8,150000,101,2},
+			{0,"Pepito Perez", "Defensor", 2,250000,102,3},
+			{0,"El Chavo", "Delantero", 9,99000,104,3},
+			{0,"Tito Pereira", "Arquero", 1,97800,100,2},
+			{0,"Angel Correa", "Mediocampista", 8,154000,105,3},
+			{0,"Angel Di Maria", "Delantero", 11,154000,102,1}
 	};
 
 	if(vec != NULL && tam > 0 && pLegajo != NULL && cant > 0 && cant <= tam)
