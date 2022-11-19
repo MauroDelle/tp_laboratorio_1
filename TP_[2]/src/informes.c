@@ -181,11 +181,13 @@ int primerListado(eJugador jugadores[], int tamJ,eConfederacion confederaciones[
     			}
     		}
 
+    	listarJugador(jugadores, TAM, confederaciones, TAMC);
+/*
     	for(int t = 0; t < tamJ; t++)
     	{
     		mostrarJugador(jugadores[t], confederaciones, tamC);
     	}
-
+*/
     	retorno = 1;
     }
 

@@ -5,10 +5,7 @@
 	
 	Lo mas importante es que termine el desarrollo de los informes que me faltaban. (ultimo y anteultimo informe)
 	
+	Arregle el primer ordenamiento que funcionaba bien pero devolvia con algo de basura.
 	
 	
-
-
-
-
 */
