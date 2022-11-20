@@ -7,5 +7,10 @@
 	
 	Arregle el primer ordenamiento que funcionaba bien pero devolvia con algo de basura.
 	
+	Añadí los valores harcodeados pedidos en la devolucion del tp y los informes funcionan correctamente.
+	
+	Deje una flag de ingreso en 1 para que se puedan testear los informes sin tener que dar de alta a un jugador.
+	
+	
 	
 */
