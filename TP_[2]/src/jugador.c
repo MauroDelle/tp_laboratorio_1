@@ -17,7 +17,7 @@
 int hardcodearJugadores(eJugador vec[], int tam, int cant, int* pLegajo)
 {
 	int todoOk = 0;
-
+/*
 	eJugador jugadores[] =
 	{
 			{0,"Lionel Messi", "Delantero", 10,200000,101,4},
@@ -36,6 +36,26 @@ int hardcodearJugadores(eJugador vec[], int tam, int cant, int* pLegajo)
 			{0,"Angel Correa", "Mediocampista", 8,154000,105,3},
 			{0,"Angel Di Maria", "Delantero", 11,154000,102,1}
 	};
+	*/
+
+	 eJugador jugadores[]={
+	       {1,"Emiliano Martinez","ARQUERO",1,100,100000,4},
+	       {2,"Juan Musso","ARQUERO",12,100,80000,2},
+	       {3,"Leo Messi","DELANTERO",10,100,80000,4},
+	       {4,"Almirez Ali","DELANTERO",9,100,55000,1},
+	       {5,"Harry Maguire","DEFENSOR",2,101,70000,4},
+	       {6,"Eric Dier","DEFENSOR",3,101,60000,2},
+	       {7,"Harry Kane","DELANTERO",10,101,3000,2},
+	       {8,"Alfred Gomis","ARQUERO",1,101,9000,1},
+	       {9,"Abdelkarim Hassan","MEDIOCAMPISTA",8,101,48000,1},
+	       {10,"Guillermo Ochoa","ARQUERO",1,104,90000,4},
+	       {11,"Tecatito","DELANTERO",11,104,100000,3,},
+	       {12,"Luis Romo","MEDIOCAMPISTA",7,104,100000,2},
+	       {13,"Bamba Dieng ","DELANTERO",9,103,100000,2},
+	       {14,"Demba Seck","DELANTERO",11,103,6000,2},
+	       {15,"Tarek Salman","DEFENSOR",6,102,78000,5}
+	   };
+
 
 	if(vec != NULL && tam > 0 && pLegajo != NULL && cant > 0 && cant <= tam)
 	{

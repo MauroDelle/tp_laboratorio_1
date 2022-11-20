@@ -19,8 +19,8 @@ typedef struct
 	char nombre[50];
 	char posicion[50];
 	int numeroCamiseta;
-	float salario;
 	int idConfederacion;
+	float salario;
 	int aniosContrato;
 	int isEmpty;
 
@@ -29,9 +29,6 @@ typedef struct
 #endif /* JUGADOR_H_ */
 /// @fn int altaJugador(eJugador[], int, eConfederacion[], int, int*)
 /// @brief funcion en la que le permite al usuario dar de alta un nuevo jugador
-///
-/// @pre
-/// @post
 /// @param vec array de la estructura eJugador
 /// @param tam tamanio del array de eJugador
 /// @param confederaciones array de la estructura eConfederacion
@@ -42,9 +39,6 @@ int altaJugador(eJugador vec[],int tam, eConfederacion confederaciones[], int ta
 
 /// @fn int bajaJugador(eJugador[], int, eConfederacion[], int)
 /// @brief funcion en la que le permite al usuario dar de baja a un jugador existente
-///
-/// @pre
-/// @post
 /// @param vec array de la estructura eJugador
 /// @param tam tamanio del array de eJugador
 /// @param confederaciones array de la estructura eConfederacion
@@ -54,9 +48,6 @@ int bajaJugador(eJugador vec[], int tam, eConfederacion confederaciones[], int t
 
 /// @fn int modificarJugador(eJugador[], int, eConfederacion[], int)
 /// @brief funcion en la que le permite al usuario modificar los campos de la estructura jugador
-///
-/// @pre
-/// @post
 /// @param vec array de la estructura eJugador
 /// @param tam tamanio del array de eJugador
 /// @param confederaciones array de la estructura eConfederacion
@@ -66,32 +57,23 @@ int modificarJugador(eJugador vec[], int tam, eConfederacion confederaciones[],i
 
 /// @fn int inicializarJugador(eJugador[], int)
 /// @brief inicializo al jugador
-///
-/// @pre
-/// @post
-/// @param vec
-/// @param tam
+/// @param vec array de la estructura eJugador
+/// @param tam tamanio del array de eJugador
 /// @return retorna 0 si hay error.
 int inicializarJugador(eJugador vec[], int tam);
 
 /// @fn int buscarJugadorLibre(eJugador[], int, int*)
 /// @brief Recorre el array y busca un espacio libre
-///
-/// @pre
-/// @post
-/// @param vec
-/// @param tam
+/// @param vec array de la estructura eJugador
+/// @param tam tamanio del array de eJugador
 /// @param pIndex
 /// @return retorna 0 si hay error.
 int buscarJugadorLibre(eJugador vec[], int tam, int* pIndex);
 
 /// @fn int buscarJugador(eJugador[], int, int, int*)
 /// @brief Busca un pasajero por su id
-///
-/// @pre
-/// @post
-/// @param vec
-/// @param tam
+/// @param vec array de la estructura eJugador
+/// @param tam tamanio del array de eJugador
 /// @param legajo
 /// @param pIndex
 /// @return retorna 0 si hay error.
@@ -99,11 +81,8 @@ int buscarJugador(eJugador vec[], int tam,int legajo, int *pIndex);
 
 /// @fn int hardcodearJugadores(eJugador[], int, int, int*)
 /// @brief funcion en la que se hardcodean jugadores para la prueba de informes
-///
-/// @pre
-/// @post
-/// @param vec
-/// @param tam
+/// @param vec array de la estructura eJugador
+/// @param tam tamanio del array de eJugador
 /// @param cant
 /// @param pLegajo
 /// @return retorna 0 si hay error.
@@ -111,9 +90,6 @@ int hardcodearJugadores(eJugador vec[], int tam, int cant, int* pLegajo);
 
 /// @fn int mostrarJugador(eJugador, eConfederacion[], int)
 /// @brief	funcion que printea un jugador
-///
-/// @pre
-/// @post
 /// @param e
 /// @param confederaciones
 /// @param tam
@@ -122,15 +98,9 @@ int mostrarJugador(eJugador e,eConfederacion confederaciones[],int tam);
 
 /// @fn int listarJugador(eJugador[], int, eConfederacion[], int)
 /// @brief funcion que lista los jugadores
-///
-/// @pre
-/// @post
-/// @param vec
-/// @param tam
+/// @param vec array de la estructura eJugador
+/// @param tam tamanio del array de eJugador
 /// @param confederaciones
 /// @param tamConf
 /// @return retorna 0 si hay error.
 int listarJugador(eJugador vec[], int tam, eConfederacion confederaciones[], int tamConf);
-
-
-
