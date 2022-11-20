@@ -182,8 +182,6 @@ int bajaJugador(eJugador vec[], int tam, eConfederacion confederaciones[], int t
     		printf("Ocurrio un problema al buscar el jugador!\n");
 
     	}
-
-    	todoOk = 1;
     }
 
     return todoOk;
