@@ -50,6 +50,7 @@ int main(void){
 				else
 				{
 					printf("Hubo un problema al hacer el alta del jugador\n");
+					flagIngreso = 0;
 				}
 				break;
 			case 2:

@@ -11,6 +11,5 @@
 	
 	Deje una flag de ingreso en 1 para que se puedan testear los informes sin tener que dar de alta a un jugador.
 	
-	
-	
+	Arregle el error con el campo isEmpty en la seccion de modificar jugador.
 */
