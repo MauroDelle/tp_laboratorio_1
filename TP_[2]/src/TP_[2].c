@@ -26,6 +26,7 @@ int main(void){
 	char preguntaSalir;
 	char salir = 'n';
 	int opcionInforme;
+	int contadorIngresados = 0;
 
 	eJugador jugadores[TAM];
 	eConfederacion confederaciones[TAMC];
@@ -45,6 +46,7 @@ int main(void){
 				if(altaJugador(jugadores, TAM, confederaciones, TAMC, &proximoId))
 				{
 					printf("Jugador agregado con exito!\n");
+					contadorIngresados++;
 					flagIngreso = 1;
 				}
 				else
@@ -54,7 +56,7 @@ int main(void){
 				}
 				break;
 			case 2:
-					if(flagIngreso == 0)
+					if(flagIngreso == 0 || contadorIngresados == 0)
 					{
 						printf("Primero de un jugador de alta!\n");
 					}
@@ -64,10 +66,11 @@ int main(void){
 						{
 							printf("Problema al realizar la baja del jugador :(\n");
 						}
+						contadorIngresados--;
 					}
 				break;
 			case 3:
-				if(flagIngreso == 0)
+				if(flagIngreso == 0 || contadorIngresados == 0)
 				{
 					printf("Primero de un jugador de alta!\n");
 				}

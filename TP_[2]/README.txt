@@ -12,4 +12,8 @@
 	Deje una flag de ingreso en 1 para que se puedan testear los informes sin tener que dar de alta a un jugador.
 	
 	Arregle el error con el campo isEmpty en la seccion de modificar jugador.
+	
+	Agregue un contador para que incremente y disminuya segun ingreso o doy de baja jugadores, obviamente no cuenta a los
+	jugadores hardcodeados que deje para la prueba de informes.
+	
 */
