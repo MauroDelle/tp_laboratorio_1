@@ -16,4 +16,6 @@
 	Agregue un contador para que incremente y disminuya segun ingreso o doy de baja jugadores, obviamente no cuenta a los
 	jugadores hardcodeados que deje para la prueba de informes.
 	
+	dejé banderas sueltas asi pueden probar las funcionalidades del tp. mas para los informes.
+	
 */
