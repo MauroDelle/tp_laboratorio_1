@@ -29,7 +29,6 @@ int main()
     	//importante LEER README***
 
     do{
-
     	limpioPantalla();
         switch(menu())
         {
@@ -108,7 +107,6 @@ int main()
 						if(banderaConvocados == 0)
 						{
 							printf("DEBE CONVOCAR AL MENOS UN JUGADOR!\n");
-
 						}
 						else
 						{
@@ -143,7 +141,6 @@ int main()
     				else
     				{
     				controller_ordenarSelecciones(listaSelecciones);
-    				//controller_listarJugadores(listaSelecciones, listaSelecciones);
     				controller_listarSelecciones(listaSelecciones);
     				}
              	   	printf("\nMOSTRANDO LISTA ORDENADA...\n");
