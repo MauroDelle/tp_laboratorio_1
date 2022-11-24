@@ -26,7 +26,6 @@ int main()
     int banderaExit = 0;
     int banderaConvocados = 0;
 
-    	//importante LEER README***
 
     do{
     	limpioPantalla();
