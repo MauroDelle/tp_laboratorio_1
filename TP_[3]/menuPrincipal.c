@@ -23,7 +23,7 @@ int menu_listado()
 			"3)JUGADORES CONVOCADOS    |\n|"
 			"4)SALIR                   |\n");
 	printf("|__________________________|");
-	utn_getNumero(&opcion, "\nENTER OPTION: ", "\n[INVALID VALUE, PLEASE TRY AGAIN.]", 1, 4, 50);
+	utn_getNumero(&opcion, "\nINGRESE UNA OPCION: ", "\n[VALOR INVALIDO, REINTENTE.]", 1, 4, 50);
 	return opcion;
 
 }
@@ -32,30 +32,30 @@ int menu()
 {
 	int opcion;
 
-	printf("\n__________________________________________________________________________");
-	printf("\n                                                                          |");
-	printf("\n                       WELCOME TO FIFA                                  |\n");
-	printf("__________________________________________________________________________|\n");
-	printf("_________________________________________________________________________________");
-	printf("\n|1)CARGA DE ARCHIVOS  (IN TEXT MODE)                                            |\n|"
-			"2)ALTA DE JUGADOR                                                              |\n|"
-			"3)MODIFICACIÓN DE JUGADOR                                                      |\n|"
-			"4)BAJA DE JUGADOR                                                              |\n|"
-			"5)LISTADOS                                                                     |\n|"
-			"6)CONVOCAR JUGADORES                                                           |\n|"
-			"7)ORDENAR Y LISTAR                                                             |\n|"
-			"8)GENERAR ARCHIVO BINARIO                                                      |\n|"
-			"9)CARGAR ARCHIVO BINARIO                                                       |\n|"
-			"10)GUARDAR ARCHIVOS .CSV:                                                      |\n|"
-			"11)SALIR                                                                       |\n");
-	printf("|_______________________________________________________________________________|");
-	utn_getNumero(&opcion, "\nENTER AN OPTION: ", "\n[INVALID VALUE, TRY AGAIN.] ", 1, 11, 11);
+	printf("\n_____________________________________________________________________________");
+	printf("\n                                                                              |");
+	printf("\n                       BIENVENIDO A FIFA                                      |");
+	printf("\n______________________________________________________________________________|");
+	printf("\n_________________________________________________________________________________");
+	printf("\n1)CARGA DE ARCHIVOS  (EN MODO TEXTO)                                           ||"
+			"\n2)ALTA DE JUGADOR                                                              ||"
+			"\n3)MODIFICACION DE JUGADOR                                                      ||"
+			"\n4)BAJA DE JUGADOR                                                              ||"
+			"\n5)LISTADOS                                                                     ||"
+			"\n6)CONVOCAR JUGADORES                                                           ||"
+			"\n7)ORDENAR Y LISTAR                                                             ||"
+			"\n8)GENERAR ARCHIVO BINARIO                                                      ||"
+			"\n9)CARGAR ARCHIVO BINARIO                                                       ||"
+			"\n10)GUARDAR ARCHIVOS .CSV                                                       ||"
+			"\n11)SALIR                                                                       ||");
+	printf("\n|______________________________________________________________________________||");
+	utn_getNumero(&opcion, "\nINGRESE UNA OPCION: ", "\n[VALOR INVALIDO, REINTENTE.] ", 1, 11, 11);
 	return opcion;
 }
 
 
 void pFunction(char* messageError1,char* messageError2,char* messageSucess,int* flag,int flagValue,
-				LinkedList* array,int(*pFunction)(LinkedList*))
+				LinkedList* array,int(*pFuncion)(LinkedList*))
 {
 	int flagForCompare = *flag;
 
@@ -64,7 +64,27 @@ void pFunction(char* messageError1,char* messageError2,char* messageSucess,int* 
 		printf("\n%s\n",messageError1);
 	}else
 	{
-		if (!pFunction(array))
+		if (!pFuncion(array))
+		{
+			printf("\n%s\n",messageError2);
+		} else
+		{
+			printf("\n%s\n",messageSucess);
+		}
+	}
+}
+
+void pFunction2(char* messageError1,char* messageError2,char* messageSucess,int* flag,int flagValue,
+				LinkedList* array, LinkedList* array2 ,int(*pFuncion)(LinkedList*, LinkedList*))
+{
+	int flagForCompare = *flag;
+
+	if(flagForCompare==flagValue)
+	{
+		printf("\n%s\n",messageError1);
+	}else
+	{
+		if (!pFuncion(array, array2))
 		{
 			printf("\n%s\n",messageError2);
 		} else

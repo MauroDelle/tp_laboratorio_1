@@ -18,25 +18,7 @@ void jug_delete(Jugador* this)
 	}
 }
 
-int jug_searchForId(LinkedList* pArrayListJugadores, int id)
-{
-	int todoOk=-1;
 
-	int auxId;
-
-	Jugador* pAuxJugadores;
-
-	for(int indice=0;indice<ll_len(pArrayListJugadores);indice++)
-	{
-		pAuxJugadores = ll_get(pArrayListJugadores, indice);//BUSCAMOS
-		if(jug_getId(pAuxJugadores, &auxId)==1 && auxId==id)
-		{
-			todoOk=indice;//SI ENCUENTRA DEVUELE INDICE
-		}
-	}
-	return todoOk;
-
-}
 
 Jugador* jug_new()
 {
@@ -86,35 +68,6 @@ Jugador* jug_newParametros(char* idStr,char* nombreCompletoStr,char* edadStr, ch
 	return this;
 
 }
-
-
-
-
-//STATIC LIBRARYS
-/*
-static int esNombre(char* cadena,int longitud)
-{
-	int i=0;
-	int retorno = 1;
-
-	if(cadena != NULL && longitud > 0)
-	{
-		for(i=0 ; cadena[i] != '\0' && i < longitud; i++)
-		{
-			if((cadena[i] < 'A' || cadena[i] > 'Z' ) && (cadena[i] < 'a' || cadena[i] > 'z' ))
-			{
-				retorno = 0;
-				break;
-			}
-		}
-	}
-	return retorno;
-}
-
-*/
-
-
-
 
 //GETTERS
 
@@ -301,7 +254,7 @@ int jug_setId(Jugador* this,int id){
 }
 
 
-int jug_ShowOnlyOne(Jugador *Jugador)
+int jug_ShowOnlyOne(Jugador *Jugador, char* nombreSeleccion)
 {
 	int todoOk=0;
 
@@ -310,7 +263,6 @@ int jug_ShowOnlyOne(Jugador *Jugador)
 	int edad;
 	char posicion[30];
 	char nacionalidad[30];
-	int idSeleccion;
 
 	if(Jugador != NULL)
 	{
@@ -319,16 +271,11 @@ int jug_ShowOnlyOne(Jugador *Jugador)
 		jug_getEdad(Jugador, &edad);
 		jug_getPosicion(Jugador, posicion);
 		jug_getNacionalidad(Jugador, nacionalidad);
-		jug_getSIdSeleccion(Jugador, &idSeleccion);
 
-
-		printf("|%4d | %-21s  |         %2d	   |   %-15s     |       %-20s | %4d    |\n",id,nombreCompleto,edad,posicion,nacionalidad,idSeleccion);
-
+		printf("|%4d | %-21s  |         %2d	   |   %-15s     |       %-20s | %14s    |\n",id,nombreCompleto,edad,posicion,nacionalidad,nombreSeleccion);
 		printf("------------------------------------------------------------------------------------------------------------------\n");
 
-
 		todoOk=1;
-
 	}
 
 	return todoOk;
@@ -355,10 +302,12 @@ int jug_sortByNacionalidad(void* arg1,void* arg2)
 {
 	int retorno=0;
 	char Nacionalidad1[50], Nacionalidad2[50];
-	if(arg1!=NULL&&arg2!=NULL){
+	if(arg1!=NULL&&arg2!=NULL)
+	{
 		jug_getNacionalidad((Jugador*)arg1, Nacionalidad1);
 		jug_getNacionalidad((Jugador*)arg2, Nacionalidad2);
-		if(strncmp(Nacionalidad2,Nacionalidad1,4)<0){
+		if(strncmp(Nacionalidad2,Nacionalidad1,4)<0)
+		{
 			retorno=1;
 		} else if(strncmp(Nacionalidad2,Nacionalidad1,4)>0){
 			retorno=-1;
@@ -371,10 +320,12 @@ int jug_sortByEdad(void* arg1, void* arg2)
 {
 	int retorno=0;
 	int idArg1, idArg2;
-	if(arg1!=NULL&&arg2!=NULL){
+	if(arg1!=NULL&&arg2!=NULL)
+	{
 		jug_getEdad((Jugador*)arg1, &idArg1);
 		jug_getEdad((Jugador*)arg2, &idArg2);
-		if(idArg1>idArg2){
+		if(idArg1>idArg2)
+		{
 			retorno=1;
 		} else if(idArg1<idArg2){
 			retorno=-1;

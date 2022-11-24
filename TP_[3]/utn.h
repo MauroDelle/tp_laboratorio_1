@@ -22,6 +22,7 @@ int stringIsAlphabetic(char string[]);
 int getUserMenuOptionInt(int* confirUser,char message[],char errorMessage[],int minOption,int maxOption);
 int getUserMenuOption(char* confirUser,char message[],char errorMessage[]);
 
+int utn_presioneUnaTecla(char message[],char errorMessage[]);
 void showMessage(char string[]);
 void limpioPantalla();
 

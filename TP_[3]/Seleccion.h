@@ -36,15 +36,6 @@ Seleccion* selec_newParametros(char* idStr,char* paisStr,char* confederacionStr,
 /// \param this
 void selec_delete(Seleccion* this); //DONE
 
-/// \brief busca por id
-///
-/// \pre
-/// \post
-/// \param pArrayListSeleccion
-/// \param id
-/// \return
-int selec_searchForId(LinkedList* pArrayListSeleccion, int id);
-
 /// \brief getter de id
 ///
 /// \pre

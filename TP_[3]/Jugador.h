@@ -35,8 +35,6 @@ Jugador* jug_new();	//lista
 /// \return
 Jugador* jug_newParametros(char* idStr,char* nombreCompletoStr,char* edadStr, char* posicionStr, char* nacionalidadStr, char* idSelccionStr);
 
-int jug_searchForId(LinkedList* pArrayListJugadores, int id);
-
 /// \brief LO QUE HACE ES ELIMINAR A UN JUGADOR DE LA LISTA CON FREE();
 ///
 /// \pre
@@ -79,7 +77,7 @@ int jug_getHigherId(Jugador* this,int* id);
 /// \post
 /// \param Jugador
 /// \return
-int jug_ShowOnlyOne(Jugador *Jugador);
+int jug_ShowOnlyOne(Jugador *Jugador, char* nombreSeleccion);
 
 /// \brief setter de nombre completp
 ///

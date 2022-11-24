@@ -64,26 +64,6 @@ int selec_getId(Seleccion* this,int* id)
 	return todoOk;
 }
 
-int selec_searchForId(LinkedList* pArrayListSeleccion, int id)
-{
-	int todoOk=-1;
-
-	int auxId;
-
-	Seleccion* pAuxSeleccion;
-
-	for(int indice=0;indice<ll_len(pArrayListSeleccion);indice++)
-	{
-		pAuxSeleccion = ll_get(pArrayListSeleccion, indice);//BUSCAMOS
-		if(selec_getId(pAuxSeleccion, &auxId)==1 && auxId==id)
-		{
-			todoOk=indice;//SI ENCUENTRA DEVUELE INDICE
-			break;
-		}
-	}
-	return todoOk;
-}
-
 int selec_sortByConfederacion(void* arg1, void* arg2)
 {
 	int todoOk = 0;
@@ -215,8 +195,8 @@ int selec_ShowOnlyOne(Seleccion *Seleccion)
 		selec_getConfederacion(Seleccion, confederacion);
 		selec_getConvocados(Seleccion, &convocados);
 
-		printf("|%3d | %-13s  |    %-13s	  |   %4d   |\n",id,pais,confederacion,convocados);
-		printf("|----|--------|---------------|---------|\n");
+		printf("|%3d  |     %-8s       |      %-13s|   %4d     |\n",id,pais,confederacion,convocados);
+		printf("|-----------------------------------------------------------------|\n");
 
 		todoOk=1;
 	}

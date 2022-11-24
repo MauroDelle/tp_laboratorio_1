@@ -36,4 +36,7 @@ int menu();
 void pFunction(char* messageError1,char* messageError2,char* messageSucess,int* flag,int flagValue,
 				LinkedList* array,int(*pFunction)(LinkedList*));
 
+void pFunction2(char* messageError1,char* messageError2,char* messageSucess,int* flag,int flagValue,
+				LinkedList* array, LinkedList* array2,int(*pFunction)(LinkedList*, LinkedList*));
+
 #endif /* MENUPRINCIPAL_H_ */

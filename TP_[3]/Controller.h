@@ -29,7 +29,7 @@ int controller_agregarJugador(LinkedList* pArrayListJugador);//DONE
 /// \post
 /// \param pArrayListJugador
 /// \return	int
-int controller_editarJugador(LinkedList* pArrayListJugador);
+int controller_editarJugador(LinkedList* pArrayListJugador, LinkedList* pArrayListSelecciones);
 
 /// \brief quita un jugador del sistema
 ///
@@ -37,7 +37,7 @@ int controller_editarJugador(LinkedList* pArrayListJugador);
 /// \post
 /// \param pArrayListJugador
 /// \return	int
-int controller_removerJugador(LinkedList* pArrayListJugador);
+int controller_removerJugador(LinkedList* pArrayListJugador, LinkedList* pArrayListSelecciones);
 
 /// \brief lista todos los jugadores
 ///
@@ -45,7 +45,7 @@ int controller_removerJugador(LinkedList* pArrayListJugador);
 /// \post
 /// \param pArrayListJugador
 /// \return
-int controller_listarJugadores(LinkedList* pArrayListJugador);	//DONE
+int controller_listarJugadores(LinkedList* pArrayListJugador, LinkedList* pArrayListSelecciones);	//DONE
 
 /// \brief ordena jugadores
 ///

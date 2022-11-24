@@ -35,9 +35,9 @@ int stringIsPath(char string[]){
 
 /**
  * \brief 	Lee de stdin hasta que encuentra un '\n' o hasta que haya copiado en cadena
- * 			un máximo de 'longitud - 1' caracteres.
+ * 			un mï¿½ximo de 'longitud - 1' caracteres.
  * \param pResultado Puntero al espacio de memoria donde se copiara la cadena obtenida
- * \param longitud Define el tamaño de cadena
+ * \param longitud Define el tamaï¿½o de cadena
  * \return Retorna 0 (EXITO) si se obtiene una cadena y -1 (ERROR) si no
  *
  */
@@ -357,6 +357,10 @@ static int esNombre(char* cadena,int longitud)
 	{
 		for(i=0 ; cadena[i] != '\0' && i < longitud; i++)
 		{
+			if(cadena[i] == ' ')
+			{
+				continue;
+			}
 			if((cadena[i] < 'A' || cadena[i] > 'Z' ) && (cadena[i] < 'a' || cadena[i] > 'z' ))
 			{
 				retorno = 0;
@@ -381,11 +385,12 @@ int utn_getNombre(char* pResultado, int longitud,char* mensaje, char* mensajeErr
 {
 	char bufferString[4096];
 	int retorno = -1;
-	while(reintentos>=0)
+	int esNombreValido = 0;
+	while(!esNombreValido && reintentos>=0)
 	{
 		reintentos--;
 		printf("%s",mensaje);
-		if(getNombre(bufferString,sizeof(bufferString)) == 0 && strnlen(bufferString,sizeof(bufferString)) < longitud )
+		if(getNombre(bufferString,sizeof(bufferString)) == 0 && strnlen(bufferString,sizeof(bufferString)) < longitud && esNombre(bufferString, longitud))
 		{
 			strncpy(pResultado,bufferString,longitud);
 			retorno = 0;
@@ -395,6 +400,7 @@ int utn_getNombre(char* pResultado, int longitud,char* mensaje, char* mensajeErr
 	}
 	return retorno;
 }
+
 
 
 /**
@@ -648,6 +654,28 @@ int getUserConfirmation(char* confirUser,char message[],char errorMessage[])
 		}
 
 		*confirUser = auxConf;
+		todoOk=0;
+	}
+
+	return todoOk;
+}
+
+int utn_presioneUnaTecla(char message[],char errorMessage[])
+{
+	int todoOk = -1;
+	char auxConf;
+
+	if(message!=NULL && errorMessage!=NULL)
+	{
+		printf("%s ", message);
+		fflush(stdin);
+		scanf("%c", &auxConf);
+		while(auxConf!='\n')
+		{
+			printf("%s ", errorMessage);
+			fflush(stdin);
+			scanf("%c", &auxConf);
+		}
 		todoOk=0;
 	}
 
