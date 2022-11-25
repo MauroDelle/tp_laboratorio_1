@@ -17,7 +17,7 @@ LinkedList* ll_newLinkedList(void)
 {
     LinkedList* this = NULL;
 
-    this = (LinkedList*)malloc(sizeof(LinkedList));
+    this = (LinkedList*)malloc(sizeof(LinkedList)); //guardo memoria
 
     if(this != NULL)
     {
@@ -56,14 +56,14 @@ int ll_len(LinkedList* this)
  */
 static Node* getNode(LinkedList* this, int nodeIndex)
 {
-	Node* pNodo = NULL;
-	int i;
+	Node* pNodo = NULL; // solicita el nodo pasando una lista null, por ende presetearlo como null
 
-	if(this != NULL && nodeIndex >= 0 && nodeIndex < ll_len(this))
+	//es una terea comun a varias funciones, devuelve la direccion en memoria de un nodo
+	if(this != NULL && nodeIndex >= 0 && nodeIndex < ll_len(this)) //el nodo si puede ser igual a 0 pero no menor y tampoco mayor al len de this
 	{
-		pNodo = this->pFirstNode;
+		pNodo = this->pFirstNode; 	//apunto al primer "vagon"
 
-		for(i=0;i<nodeIndex;i++)
+		for(int i = 0;i<nodeIndex;i++)
 		{
 			pNodo = pNodo->pNextNode;
 		}
@@ -97,18 +97,19 @@ Node* test_getNode(LinkedList* this, int nodeIndex)
 static int addNode(LinkedList* this, int nodeIndex,void* pElement)
 {
     int returnAux = -1;
-    Node* pPreviousNode;
+    Node* pPreviousNode; //nodo previo al de adelante
 	Node* pNewNode;
 
+	//pElement puede ser NULL x eso no valido
     if(this != NULL && nodeIndex >= 0 && nodeIndex <= ll_len(this))
     {
     	pNewNode = (Node*) malloc(sizeof(Node));
     	pNewNode->pElement = pElement;
 
-    	if(nodeIndex == 0)
+    	if(nodeIndex == 0) // si el vagon es 0
     	{
     		pNewNode->pNextNode = this->pFirstNode;
-    		this->pFirstNode = pNewNode;
+    		this->pFirstNode = pNewNode; // o lo engancho a la locomotora
     	}
     	else
     	{
